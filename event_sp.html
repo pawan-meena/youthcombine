@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="YOUTHCOMBINEApp">
+<head>
+    <meta charset="utf-8">
+    <title>Youth Combine</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css?v=78" rel="stylesheet">
+    <link href="css/style.css?v=78s" rel="stylesheet">
+    <link rel="shortcut icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css?v=78" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+    <script src="js/jquery.js?v=78"></script>
+
+    <script type="text/.html" src="../system/vendor/angular/angular.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-ui-router/release/angular-ui-router.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-touch/angular-touch.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-ui-utils/ui-utils.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-animate/angular-animate.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-bootstrap/ui-bootstrap-tpls.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/datatables/media/js/jquery.dataTables.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/datatables/media/js/dataTables.responsive.js?v=78"></script>
+    <script type="text/.html" src="../system/scripts/extentions/bootstrap-datatables.js?v=78"></script>
+    <script type="text/.html" src="../system/scripts/extentions/dataTables.buttons.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/jquery.dataTables.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/responsive.dataTables.min.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/buttons.dataTables.min.css?v=78">
+    <script type="text/.html"
+            src="../system/vendor/jquery-validation/dist/jquery.validate.min.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/sweetalert/dist/sweetalert.css?v=78">
+    <script type="text/.html" src="../system/vendor/sweetalert/dist/sweetalert.min.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sweetalert/SweetAlert.min.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js?v=78"></script>
+
+    <link rel="stylesheet"
+          href="../system/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css?v=78">
+    <script type="text/.html"
+            src="../system/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=78"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+
+        .display_modal{
+            display: block;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .topnav a {
+            float: left;
+            color: #75cfe3;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #75cfe3;
+            color: white;
+        }
+
+        
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100001 !important;
+            width: 100%;
+            height: 100%;
+
+        }
+        .loader {
+            position: fixed;
+
+            /*width: 550px;*/
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(/system/images/Spinner@2x-1.0s-200px-200px.gif?v=1) no-repeat center;
+            background-size: 200px;
+            z-index: 100002 !important;
+        }
+
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZKH3NRRG"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-X2ZKH3NRRG');
+
+    </script>
+
+</head>
+
+<body class="fit-banner">
+
+<div id="cover" style="display: none"></div>
+<div class="loader" id="loading_bar" style="display: none">
+</div>
+
+<div class="site-container">
+    <div class="cursor"></div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="menu-backdrop"></div>
+
+
+    <!--    -->            <!-- Main Header Bar-->
+
+
+        
+            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
+                <div style="float: right !important;">
+
+                    <a href="events.php" style="text-transform: uppercase;">events</a>
+                                            <a href="index.php#section2" style="text-transform: uppercase;">about</a>
+                    
+                                            <a href="index.php#partners" style="text-transform: uppercase;">partners</a>
+                                        <a href="athletes.php" style="text-transform: uppercase;">athletes</a>
+                    <a href="aps.php">APS</a>
+                    <!--                -->                                        <!--                <a href="store.php">official store</a>-->
+
+
+                                            <a href="login.php" style="text-transform: uppercase;">Login / Register</a>
+                    
+                </div>
+                <!--            <a href="../control/control.php?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
+                <!---->
+
+
+                <!--            -->                <!---->
+                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="../control/control.php?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="login.php" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->            </div>
+
+        
+
+        <!---->
+        <!--        <header>-->
+        <!--            <div class="outer-box clearfix" style="padding: 20px;">-->
+
+        <!--                <div class="bread-crumb">-->
+        <!--                    <ul class="clearfix">-->
+        <!--                        <li><a href="stats.php">athlete profile</a></li>-->
+        <!--                        <li><a href="store.php">official store</a></li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+
+
+        <!--            </div>-->
+        <!--        </header>-->
+
+
+        <header class="main-header-bar">
+            <div class="line-one" style="top: 145px!important;"></div>
+            <div class="line-two"></div>
+
+
+            <!--Header-Upper-->
+            <div class="header-bar-inner">
+                <div class="outer-box clearfix">
+
+                    <div class="main-logo-box" style="text-align: center;padding-top: 20px">
+                        <a href="index.php">
+                            <img src="images/img/logo-yc-300.png" style="width: 60px">
+                        </a>
+                    </div>
+                    <!--Nav Toggler-->
+                    <div class="nav-toggler" style="position: initial!important;padding-top: 25px;">
+                        <button class="toggler-btn">
+                            <span class="bar bar-one" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-two" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-three" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                        </button>
+                    </div>
+
+                    <!--Social Links-->
+                    <div class="social-links">
+                        <ul class="clearfix">
+                            <li><a href="https://www.instagram.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://x.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-twitter-square"></span></a></li>
+                            <li><a href="https://www.facebook.com/usayouthcombine" target="_blank"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                        </ul>
+                    </div>
+
+                    
+                        <!--Copyright Text-->
+                        <div class="copyright">&copy; Youth Combine 2024</div>
+
+                                    </div>
+
+                <!--Alt Logo Box-->
+                <div class="alt-logo-box"><a href="index.php"><img src="images/logo.png" alt=""></a></div>
+
+                <!--Nav Bg Box-->
+                <div class="nav-bg-box"></div>
+
+
+                <!--Main Nav Outer-->
+                <div class="main-nav-outer">
+                    <div class="nav-closer"><img src="images/icons/close-icon.png" alt=""></div>
+                    <div class="outer-nav-box" style="height: 450px!important;">
+
+                        <div class="top-bg"></div>
+                        <div class="bottom-bg"></div>
+                        <div class="main-nav-box" data-scrollbar="">
+                            <!--Logo Box-->
+                            <!--                        <div class="main-logo-box"><a href="index.php"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <div class="main-nav" style="padding: 50px 30px 0;">
+                                <ul class="navigation">
+                                    <li class="current"><a href="index.php">home</a></li>
+                                                                        <li class=""><a href="events.php">events</a></li>
+                                    <!--                                <li><a href="store.php">official store</a></li>-->
+                                    <!--                                <li><a href="about.php">about us</a></li>-->
+
+                                                                            <li><a href="login.php">login / register</a></li>
+                                    
+                                    
+                                    <li><a href="contact.php">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.php">philanthropy</a></li>-->
+                                                                    </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!--End Main Header -->
+    
+
+    <div class="scroll-container">
+    <div class="main-content-container" id="scroll-container">
+    <div class="body-bg-layer" style="background-image: url(images/img/fondo_portfolio_events.jpg);"></div>
+    <!-- Page Title -->
+    <section class="page-title" id="to-top-div">
+        <div class="auto-container">
+            <h1><span>Oklahoma City</span></h1>
+            <div class="bread-crumb">
+                <ul class="clearfix">
+                    <li><a href="home.php">home</a></li>
+                    <li><a href="events.php">events </a></li>
+                    <li class="current">Oklahoma City</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Banner Section -->
+
+
+    <!--Portfolio Single Section-->
+    <section class="project-details" style="padding-bottom: 40px;">
+        <div class="auto-container">
+
+            <div class="upper-content">
+                <div class="row clearfix">
+                    <!--Text Col-->
+                    <div class="text-col col-lg-5 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <h3>November 16, 2024</h3>
+                            <div class="text">2600 NE 63rd Street, Oklahoma City, OK</div>
+                            <div class="text" style="padding-bottom: 36px">OCCHD Training Facility</div>
+                            <div class="scope">
+
+                                <div class="ttl"><span>Details</span><i class="fa fa-ellipsis-v"></i></div>
+                                <ul>
+                                    <li> 10:00 AM -  12:30 PM</li><li> 01:00 PM -  03:30 PM</li><li> 04:00 PM -  06:30 PM</li>                                    <li>Ages 6 – 14</li>
+                                    <li>Special Guests</li>
+                                    <li>Arrive 45 minutes prior for check-in</li>
+                                </ul>
+                            </div>
+                            <div class="text" style="margin-right: -35px!important;">Come out and enjoy a fun, safe, inclusive experience to test your athletic abilities in a variety of challenges. At the end of the event, you’ll be provided with an “APS” (Athletic Performance Score), which provides a standard for measuring athletic performance for children between the ages of 7 to 15. Each Youth Combine builds on the foundation of sportsmanship, hard work, and friendship while developing important life skills. Most of all, it’s a chance to get active and have fun with other kids!</div>
+
+                        </div>
+                    </div>
+
+                    <!--Image Col-->
+                    <div class="image-col col-lg-7 col-md-12 col-sm-12">
+                        <div class="inner">
+                            <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1727969859.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;padding-bottom: 40px;">
+        <div class="form-group">
+            <a href="signup.php?event_id=15">
+                <button type="button" class="theme-btn btn-style-two"><span>SIGN UP</span></button>
+            </a>
+        </div>
+    </div>
+
+    <!--    <section class="plans-section">-->
+    <!--        <div class="auto-container">-->
+    <!--            <div class="row clearfix">-->
+    <!--                -->
+    <!--                <div class="image-col col-lg-6 col-md-12 col-sm-12">-->
+    <!--                    <div class="inner">-->
+    <!--                        <div class="image">-->
+    <!--                            <div class="bg-pattern"></div>-->
+    <!--                            <img src="images/img/about4.png" alt="">-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="text-col col-lg-6 col-md-12 col-sm-12">-->
+    <!--                    <div class="inner">-->
+    <!--                        <h4>It’s a chaotic jungle out there in youth sports as parents pursue the dream of providing society with the next elite athlete. The journey is rough and costly in time, energy, and emotions.</h4>-->
+    <!--                        <div class="text">-->
+    <!--                            <p>A Standardized, quantitative snapshot of a young athlete’s overall skill set to take some chaos and guesswork  out of youth sports, in some cases building a roadmap towards professional or NCAA decisions.</p>-->
+    <!--                            <p>Athletes engage in YC event (up to 2 X per year) Each event handles 500-->
+    <!--                                young athletes ages between 7 and 15 years (in age specific cohorts) Youth Combine-->
+    <!--                                generate vast amounts of valuable sports science data</p>-->
+    <!--                            <ul>-->
+    <!--                                <li>Once combine is completed, the athlete will have a current APS specific to-->
+    <!--                                    their age category and independent of any one sport</li>-->
+    <!--                                <li>The individual APS reflects an athlete’s true and quantitative abilities-->
+    <!--                                    along with their growth patterns</li>-->
+    <!--                                <li>The YC smart /social app offers vast visualization tools that make the-->
+    <!--                                    easy sharing of information to friends, family, coaches, and colleges</li>-->
+    <!--                                <li>YC participation and year-over-year APS data allows for rational planning-->
+    <!--                                    and decision making as the coach, parent and young athlete consider (pursue) navigate-->
+    <!--                                    specific sport decisions and/or NCAA scholarships</li>-->
+    <!--                            </ul>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!---->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+
+    <!--    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center">-->
+    <!--        <div class="form-group">-->
+    <!--            <a href="signup.php?event_id=--><!--">-->
+    <!--                <button type="button" class="theme-btn btn-style-two"><span>SIGN UP</span></button>-->
+    <!--            </a>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+    <!--    <section class="services-two">-->
+    <!--        <div class="auto-container">-->
+    <!--            <div class="def-title-box">-->
+    <!--                <div class="patt"><span></span></div>-->
+    <!--                <div class="subtitle">about Youth Combine</div>-->
+    <!--                <h3>Kids Time is NOW</h3>-->
+    <!--            </div>-->
+    <!---->
+    <!--            <div class="row parent-row clearfix">-->
+    <!--                <div class="tabs-col col-xl-6 col-lg-12 col-md-12 col-sm-12">-->
+    <!--                    <div class="tabs-box def-tabs-box">-->
+    <!--                        <ul class="tab-buttons clearfix">-->
+    <!---->
+    <!--                            <li class="tab-btn active-btn" data-tab="#tab-2"><span>our mission</span></li>-->
+    <!--                            <li class="tab-btn" data-tab="#tab-3"><span>youth specific</span></li>-->
+    <!--                            <li class="tab-btn" data-tab="#tab-1"><span>program objective</span></li>-->
+    <!--                        </ul>-->
+    <!--                        <div class="tabs-content">-->
+    <!--                            -->
+    <!--                            <div class="tab" id="tab-1">-->
+    <!--                                <div class="row clearfix">-->
+    <!--                                    <div class="image-col col-lg-5 col-md-5 col-sm-6">-->
+    <!--                                        <div class="image"><img src="images/img/yc_objectives.jpg" alt=""></div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="text-col col-lg-7 col-md-7 col-sm-6">-->
+    <!--                                        <div class="text">-->
+    <!--                                            <p>Provide an opportunity for youth athletes to compete against other-->
+    <!--                                                same-age youth in their community and across the country to-->
+    <!--                                                appropriately score and rank their athletic skills relative to their-->
+    <!--                                                “competition” and provide adata-first ranking of youth athletes in-->
+    <!--                                                relative categories across America.</p>-->
+    <!--                                            <p>Our team of science and research partners will analyze the data gathered-->
+    <!--                                                at each Youth Combine and identify trends that provide a level of-->
+    <!--                                                project ability to future athletic achievement opportunity. Year over-->
+    <!--                                                year data will assist parents and the young athletes in identifying the-->
+    <!--                                                potential best sport(s) and specific activities that they may excel at-->
+    <!--                                                in future years.</p>-->
+    <!--                                            <p>Athletes and coaches will use the YC data to assist in their future-->
+    <!--                                                recruiting efforts with NCAA programs.</p>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!---->
+    <!--                            -->
+    <!--                            <div class="tab active-tab" id="tab-2">-->
+    <!--                                <div class="row clearfix">-->
+    <!--                                    <div class="image-col col-lg-5 col-md-5 col-sm-6">-->
+    <!--                                        <div class="image"><img src="images/img/yc_mission.jpg" alt=""></div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="text-col col-lg-7 col-md-7 col-sm-6">-->
+    <!--                                        <div class="text">-->
+    <!--                                            <p>Youth Combine USA provides young athletes from across the country with a-->
+    <!--                                                fun, safe and inclusive experience to test their athletic abilities in a-->
+    <!--                                                variety of disciplines that builds on the foundation of sportsmanship,-->
+    <!--                                                hard work, friendship, and teamwork.</p>-->
+    <!--                                            <p>YC will help develop the life skills that will stay with young athletes-->
+    <!--                                                long after they “hang up their cleats”.</p>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!---->
+    <!--                            -->
+    <!--                            <div class="tab" id="tab-3">-->
+    <!--                                <div class="row clearfix">-->
+    <!--                                    <div class="image-col col-lg-5 col-md-5 col-sm-6">-->
+    <!--                                        <div class="image"><img src="images/img/yc_youth.jpg" alt=""></div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="text-col col-lg-7 col-md-7 col-sm-6">-->
+    <!--                                        <div class="text">-->
+    <!--                                            <p>The first tech-driven youth sports platform that helps educate, train-->
+    <!--                                                parents and young athletes and helps both with the process.</p>-->
+    <!--                                            <p>We enable statistical information to the 60M Youth Athletes in the USA on-->
+    <!--                                                there performance, progression and project ability in a fun and-->
+    <!--                                                non-competitive environment.</p>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!---->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!---->
+    <!--                <div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">-->
+    <!--                    <div class="accordion-box clearfix">-->
+    
+    <!--                        <div class="accordion block">-->
+    <!--                            <div class="acc-btn" style="font-family: sans-serif!important;">performance <i-->
+    <!--                                        class="fa-solid fa-chart-user"></i></div>-->
+    <!--                            <div class="acc-content">-->
+    <!--                                <div class="content">-->
+    <!--                                    <div class="text">How the athlete performs at the Youth Combine in year one</div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                        -->
+    <!--                        <div class="accordion block active-block">-->
+    <!--                            <div class="acc-btn active" style="font-family: sans-serif!important;">progression<i-->
+    <!--                                        class="fa-regular fa-chart-mixed"></i></div>-->
+    <!--                            <div class="acc-content">-->
+    <!--                                <div class="content">-->
+    <!--                                    <div class="text">Based on the data points collected over several combines, a-->
+    <!--                                        reasonable projection of the athletes’ future improvements can be determined-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                        -->
+    <!--                        <div class="accordion block">-->
+    <!--                            <div class="acc-btn" style="font-family: sans-serif!important;">projectability<i-->
+    <!--                                        class="fa-regular fa-chart-radar"></i></div>-->
+    <!--                            <div class="acc-content">-->
+    <!--                                <div class="content">-->
+    <!--                                    <div class="text">Year over year data of the athletes’ performance at the Youth-->
+    <!--                                        Combine-->
+    <!--                                    </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!---->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!---->
+    <!--                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center">-->
+    <!--                    <div class="form-group">-->
+    <!--                        <a href="signup.php?event_id=--><!--">-->
+    <!--                            <button type="button" class="theme-btn btn-style-two"><span>SIGN UP</span></button>-->
+    <!--                        </a>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+
+    <!--News Section-->
+    <section class="news-section">
+        <div class="auto-container">
+
+            <div class="def-title-box">
+                <div class="patt"><span></span></div>
+
+                <h3>APS Combine Testing</h3>
+            </div>
+
+            
+            <div class="news">
+                <div class="row clearfix">
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-50yard.jpg?v=2" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 255px;">40 Yard Dash
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                The 40 Yard Dash is a test of speed and power. Starting from a three-point stance each athlete runs 40 yards as fast as they can. Split times are recorded at 40 and 50 yards to measure acceleration.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-60yard.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 255px;">60 Yard Shuttle
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                The 60 Yard Shuttle is an anaerobic test featuring a ladder shuttle of progressing distances. From a starting line, each athlete runs 5 yards and back, then 10 yards and back, then 15 yards and back, touching the line each time.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-cones.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 255px;">Cone Alley
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                The athlete will start at the back row and run forward. Always keep the forward cone in front of the body. Going back to the first row will be determined by the coach. Run forward, stop with the cone in front of you, backpedal to the next cone in the first row, and go around behind it and run forward.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-broadjump.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 430px;">Broad Jump
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                Similar to the vertical jump, the Broad Jump is a test of lower body strength, explosion, and power. The broad jump measures how far you can jump, not how high. From a standing position, the player jumps forward off two feet as far as he can.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-verticaljump.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 430px;">Vertical Jump
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                Similar to the Broad Jump, the Vertical Jump is test of explosion and power. The player jumps off both feet straight up as high as he or she can.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-static.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 430px;">Static Station
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                Measurements for the following will be recorded:
+                                <br>
+                                Standing Height: Measured to the nearest 0.25 inch.
+                                <br>
+                                <ul>
+                                    <li>Weight: Using a calibrated beam-type balance and recorded to the nearest quarter lb.</li>
+                                    <li>Hand Grip: Test of hand grip muscle strength, conducted on each hand.</li>
+                                    <li>Wingspan: Measured to the nearest 0.25 inch from he middle finger tip to middle finger tip.</li>
+                                    <li>Hand Size: Measured to the nearest 0.25 inch.</li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-ldrill.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: -15px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 535px;">L-Drill
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                The 3 Cone or "L-Drill" is one of the most popular combine drills used to measure speed and agility.  This drill requires multiple changes of direction in a small space. The player starts by getting down in a three-point stance next to Cone 1. On the command 'Go', he runs to Cone 2, bends down and touches a line with his right hand. Then he turns and runs back to Cone 1, bends down and touches that line with his right hand. Then he runs back to Cone 2 and around the outside of it, weaves inside Cone 3, then around the outside of Cones 3 and 2 before finishing at Cone 1. The player must run forward while altering his running direction, as opposed to strictly stopping and starting in opposite directions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-runshuttle.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: -15px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 535px;">Run-Shuttle-Run
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                It is a straight line drill. The athlete runs to the first cone, turns to shuffle to the next one, and then turns and runs to the last cone. Hit the brakes and return to the start. Run, shuffle, run. The middle 4 yards are always shuffle and the outside 5 yards are always run.
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box"
+                                 style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                        src="images/img/xs-40yard.jpg?v=1" alt=""></div>
+                            <div style="position: absolute;
+    left: 10px;
+    bottom: -15px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 535px;">40 Yard Dash
+                            </div>
+                            <div class="lower"
+                                 style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                The 40 Yard Dash is a test of acceleration and power. You should continue accelerating through the entire distance.
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                    </div>
+    </section>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;padding-bottom: 40px;">
+        <div class="form-group">
+            <a href="signup.php?event_id=15">
+                <button type="button" class="theme-btn btn-style-two"><span>SIGN UP</span></button>
+            </a>
+        </div>
+    </div>
+
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
+        <div class="footer-inner">
+            <div class="auto-container">
+                <div class="footer-logo"><a href="index.php"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="info">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Address</div>
+                            <div class="text">9300 Wade Blvd, Suite 320 <br>Frisco, TX 75035</div>
+                        </div>
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Contact info</div>
+                            <div class="text">
+                                <a href="/cdn-cgi/l/email-protection#640d0a020b241d0b11100c070b09060d0a014a070b09"><span class="__cf_email__" data-cfemail="553c3b333a152c3a20213d363a38373c3b307b363a38">[email&#160;protected]</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-info"><a href="faq.php">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.php">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.php">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.php">Rules</a></div>
+                <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
+            </div>
+    </footer>
+
+</div>
+
+</div>
+<!--End Site Container-->
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/popper.min.js?v=78"></script>
+<script src="js/bootstrap.min.js?v=78"></script>
+<script src="js/jquery.fancybox.js?v=78"></script>
+<script src="js/mixitup.js?v=78"></script>
+<script src="js/smooth-scrollbar.js?v=78"></script>
+<script src="js/owl.js?v=78"></script>
+<script src="js/cursor-script.js?v=78"></script>
+<script src="js/bxslider.js?v=78"></script>
+<script src="js/wow.js?v=78"></script>
+<script src="js/custom-script.js?v=78"></script>
+
+</body>
+</html>
