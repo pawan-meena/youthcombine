@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-ng-app="YOUTHCOMBINEApp">
 <head>
@@ -85,6 +86,10 @@
             color: white;
         }
 
+                .topnav a {
+            float: right !important;
+        }
+
         
         #cover {
             position: fixed;
@@ -146,36 +151,25 @@
 
 
         
-            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
-                <div style="float: right !important;">
-
-                    <a href="events.html" style="text-transform: uppercase;">events</a>
-                                            <a href="index.html#section2" style="text-transform: uppercase;">about</a>
-                    
-                                            <a href="index.html#partners" style="text-transform: uppercase;">partners</a>
-                                        <a href="athletes.html" style="text-transform: uppercase;">athletes</a>
-                    <a href="aps.html">APS</a>
-                    <!--                -->                                        <!--                <a href="store.html">official store</a>-->
-
-
-                                            <a href="login.html" style="text-transform: uppercase;">Login / Register</a>
-                    
-                </div>
-                <!--            <a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
-                <!---->
-
-
-                <!--            -->                <!---->
-                <!--                <div class="links-box clearfix" style="float: right;">-->
-                <!--                    <div class="link"><a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
-                <!--                </div>-->
-                <!---->
-                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
-                <!--                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
-                <!--                </div>-->
-                <!---->
-                <!--            -->            </div>
-
+            <!--    <div class="topnav">-->
+            <!--        <div style="float: right !important;">-->
+            <!---->
+            <!--                <a href="#section2">about</a>-->
+            <!--                -->            <!--                    <a href="#partners">partners</a>-->
+            <!--                -->            <!--                    <a href="index.php#partners">partners</a>-->
+            <!--                -->            <!--                <a href="athletes.php">athletes</a>-->
+            <!--                <a href="aps.php">APS</a>-->
+            <!--                -->            <!--                    <a href="stats.php">athlete profile</a>-->
+            <!--                -->            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!--                -->            <!--                    <a href="../control/control.php?who=logout">logout</a>-->
+            <!--                -->            <!--                    <a href="login.php">Login / register</a>-->
+            <!--                -->            <!---->
+            <!---->
+            <!--        </div>-->
+            <!--    </div>-->
         
 
         <!---->
@@ -184,8 +178,8 @@
 
         <!--                <div class="bread-crumb">-->
         <!--                    <ul class="clearfix">-->
-        <!--                        <li><a href="stats.html">athlete profile</a></li>-->
-        <!--                        <li><a href="store.html">official store</a></li>-->
+        <!--                        <li><a href="stats.php">athlete profile</a></li>-->
+        <!--                        <li><a href="store.php">official store</a></li>-->
         <!--                    </ul>-->
         <!--                </div>-->
 
@@ -204,7 +198,7 @@
                 <div class="outer-box clearfix">
 
                     <div class="main-logo-box" style="text-align: center;padding-top: 20px">
-                        <a href="index.html">
+                        <a href="index.php">
                             <img src="images/img/logo-yc-300.png" style="width: 60px">
                         </a>
                     </div>
@@ -229,14 +223,10 @@
                         </ul>
                     </div>
 
-                    
-                        <!--Copyright Text-->
-                        <div class="copyright">&copy; Youth Combine 2024</div>
-
                                     </div>
 
                 <!--Alt Logo Box-->
-                <div class="alt-logo-box"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+                <div class="alt-logo-box"><a href="index.php"><img src="images/logo.png" alt=""></a></div>
 
                 <!--Nav Bg Box-->
                 <div class="nav-bg-box"></div>
@@ -251,19 +241,19 @@
                         <div class="bottom-bg"></div>
                         <div class="main-nav-box" data-scrollbar="">
                             <!--Logo Box-->
-                            <!--                        <div class="main-logo-box"><a href="index.html"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <!--                        <div class="main-logo-box"><a href="index.php"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
                             <div class="main-nav" style="padding: 50px 30px 0;">
                                 <ul class="navigation">
-                                    <li class="current"><a href="index.html">home</a></li>
-                                                                        <li class=""><a href="events.html">events</a></li>
-                                    <!--                                <li><a href="store.html">official store</a></li>-->
-                                    <!--                                <li><a href="about.html">about us</a></li>-->
+                                    <li class="current"><a href="index.php">home</a></li>
+                                                                        <li class=""><a href="events.php">events</a></li>
+                                    <!--                                <li><a href="store.php">official store</a></li>-->
+                                    <!--                                <li><a href="about.php">about us</a></li>-->
 
-                                                                            <li><a href="login.html">login / register</a></li>
+                                                                            <li><a href="login.php">login / register</a></li>
                                     
                                     
-                                    <li><a href="contact.html">contact</a></li>
-                                    <!--                                <li><a href="philanthropy.html">philanthropy</a></li>-->
+                                    <li><a href="contact.php">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.php">philanthropy</a></li>-->
                                                                     </ul>
                             </div>
                         </div>
@@ -279,100 +269,104 @@
         <!--End Main Header -->
     
     <div class="scroll-container">
-        <div class="main-content-container" id="scroll-container">
-            <div class="body-bg-layer" style="background-image: url(images/img/login_back.jpg);"></div>
-            <!-- Page Title -->
-            <section class="page-title" id="to-top-div">
-                <div class="auto-container">
-                    <h1><span>login</span></h1>
-                    <div class="bread-crumb">
-                        <ul class="clearfix">
-                            <li><a href="index.html">home</a></li>
-                            <li class="current">login</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <!--End Banner Section -->
+    <div class="main-content-container" id="scroll-container">
+    <div class="body-bg-layer" style="background-image: url(images/img/fondo_portfolio_events.jpg);"></div>
+    <!-- Page Title -->
+    <section class="page-title" id="to-top-div">
+        <div class="auto-container">
+            <h1><span>privacy policy</span></h1>
+            <div class="bread-crumb">
+                <ul class="clearfix">
+                    <li><a href="index.php">home</a></li>
+                    <li class="current">privacy policy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Banner Section -->
 
 
-            <!--Contact Section-->
-            <section class="contact-section">
-                <div class="auto-container">
-                    <div class="def-title-box">
-                        <div class="patt"><span></span></div>
-                        <div class="subtitle">get access</div>
-                        <h3>login</h3>
-                    </div>
-
-
-                    <div class="content-side col-lg-12 col-md-12 col-sm-12">
-                        <div class="content-inner">
-                            <div class="blog-details">
-
-                                <div class="text-content text" style="margin-bottom: 0px!important;">
-                                    <p>By having a Youth Combine account you’ll be able to register your child and create their athlete profile. The profile will include all of their data from each combine (visible only to you) that they have attended including access to their APS score and North American rankings.
-                                </div>
-
-                            </div>
-
+    <!--Plans Section-->
+    <section class="plans-section">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Image-->
+                <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner">
+                        <div class="image">
+                            <div class="bg-pattern"></div>
+                            <img src="images/img/faq-logo.png" alt="">
                         </div>
                     </div>
+                </div>
 
-                    <div class="contact-box">
-                        <div class="row clearfix">
-                            <div class="form-col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <!--Content-->
+                <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner">
+                        <h4>Plans and strategies that will help the Athlete improve and grow.</h4>
+                        <div class="text">
+                            <p>Youth Combine USA® Inc. will provide young athletes from across the country with a
+                                fun, safe, inclusive experience to test their athletic abilities in a variety of
+                                disciplines that builds on the foundation of sportsmanship, hard work,
+                                friendship, and teamwork.</p>
+                            <p>Youth Combine USA® will help develop the life skills that will stay with young athletes long
+                                after they “hang up their cleats”.</p>
+                            <ul>
+                                <li>Athlete Improvement</li>
+                                <li>Data Driven Scouting</li>
+                                <li>Digital Asset Protection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="contact-form">
-                                    <form method="post" action="./control/control.html">
+            </div>
+        </div>
+    </section>
 
-                                        <input type="hidden" name="who" value="validate_login">
 
-                                        <div class="row clearfix">
-                                            <div class="inner-col col-lg-6 col-md-6 col-sm-12">
-                                                <div class="form-group">
-                                                    <div class="field-label"><span class="icon fa fa-user"></span> Username</div>
-                                                    <div class="field-inner"><input type="text" id="username" name="username" placeholder="Username" required><i class="dot"></i></div>
+    <!--Services Section-->
+    <section class="services-two">
+        <div class="auto-container">
+
+
+            <div class="row parent-row clearfix">
+
+                <div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">1.	DISCLAIMER 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p>Please make note that if you or your child falls under the age of 18, we cannot legally collect or use your information without the consent of a parent or legal guardian. As a result, we recommend your parent/guardian to assess this policy and communicate any comments, questions, and concerns to <a href="/cdn-cgi/l/email-protection#7d14131b123d04120809151e12101f141318531e1210"><span class="__cf_email__" data-cfemail="2e474048416e57415b5a464d41434c47404b004d4143">[email&#160;protected]</span></a>.<br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-
-
                                             </div>
-                                            <div class="inner-col col-lg-6 col-md-6 col-sm-12">
-                                                <div class="form-group">
-                                                    <div class="field-label"><span class="icon far fa-envelope"></span> Password</div>
-                                                    <div class="field-inner"><input type="password" id="password" name="password" placeholder="Password" required><i class="dot"></i></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="inner-col col-lg-12 col-md-12 col-sm-12">
-                                                <div class="form-group">
-                                                    <div class="field-label">Forgot Password? <a href="forgot_password.html">Click here to Recover Password.</a></div>
-
-                                                </div>
-                                            </div>
-                                            <div class="inner-col col-lg-12 col-md-12 col-sm-12">
-                                                <div class="form-group">
-                                                    <div class="field-label">Don’t have an account? <a href="register.html">Click here to Register.</a></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="inner-col col-lg-12 col-md-12 col-sm-12" style="padding-top: 70px;">
-
-                                                <div class="form-group">
-                                                    <button type="submit" class="theme-btn btn-style-two"><span>ACCESS</span></button>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">2.	Childrenâ€™s Online Privacy Protection 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p>This Site is intended solely for the use of parents or legal guardians and is not targeted for use by minors - children under the age of 18. We do not deliberately gather personal information from children under the age of 18 nor do we consciously allow children under 18 to register to the Site. If you are under 18, we ask that you do not provide personal information to us, this includes information such as your name, address telephone number or email address. Should we discover that we have mistakenly collected Personal information from a minor without the consent of a parent or guardian we will eliminate this information as quickly as possible. If you are under 18, you may use the site with the supervision of a parent or guardian. In order for a child under 18 to access or register to Youth Combine  USA, it is necessary that the parent or legal guardian of the child be responsible for registering and interacting through the Site on the childâ€™s behalf.<br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-    <script src="jquerys/login.js?v=78"></script>
+            </div>
+        </div>
+    </section>
 
 
     <!--Main Footer-->
@@ -380,7 +374,7 @@
         <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
         <div class="footer-inner">
             <div class="auto-container">
-                <div class="footer-logo"><a href="index.html"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="footer-logo"><a href="index.php"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
                 <div class="info">
                     <div class="row clearfix">
                         <!--Block-->
@@ -392,14 +386,14 @@
                         <div class="info-block col-lg-6 col-md-6 col-sm-12">
                             <div class="i-title">Contact info</div>
                             <div class="text">
-                                <a href="/cdn-cgi/l/email-protection#ed84838b82ad94829899858e82808f848388c38e8280"><span class="__cf_email__" data-cfemail="d5bcbbb3ba95acbaa0a1bdb6bab8b7bcbbb0fbb6bab8">[email&#160;protected]</span></a></div>
+                                <a href="/cdn-cgi/l/email-protection#6801060e072811071d1c000b07050a01060d460b0705"><span class="__cf_email__" data-cfemail="c6afa8a0a986bfa9b3b2aea5a9aba4afa8a3e8a5a9ab">[email&#160;protected]</span></a></div>
                         </div>
                     </div>
                 </div>
-                <div class="loc-info"><a href="faq.html">FAQs</a></div>
-                <div class="loc-info"><a href="privacy_policy.html">Privacy Policy</a></div>
-                <div class="loc-info"><a href="terms_conditions.html">Terms and Conditions</a></div>
-                <div class="loc-info"><a href="rules.html">Rules</a></div>
+                <div class="loc-info"><a href="faq.php">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.php">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.php">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.php">Rules</a></div>
                 <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
             </div>
     </footer>

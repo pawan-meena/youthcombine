@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="YOUTHCOMBINEApp">
+<head>
+    <meta charset="utf-8">
+    <title>Youth Combine</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css?v=78" rel="stylesheet">
+    <link href="css/style.css?v=78s" rel="stylesheet">
+    <link rel="shortcut icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css?v=78" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+    <script src="js/jquery.js?v=78"></script>
+
+    <script type="text/.html" src="../system/vendor/angular/angular.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-ui-router/release/angular-ui-router.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-touch/angular-touch.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-ui-utils/ui-utils.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-animate/angular-animate.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-bootstrap/ui-bootstrap-tpls.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/datatables/media/js/jquery.dataTables.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/datatables/media/js/dataTables.responsive.js?v=78"></script>
+    <script type="text/.html" src="../system/scripts/extentions/bootstrap-datatables.js?v=78"></script>
+    <script type="text/.html" src="../system/scripts/extentions/dataTables.buttons.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/jquery.dataTables.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/responsive.dataTables.min.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/buttons.dataTables.min.css?v=78">
+    <script type="text/.html"
+            src="../system/vendor/jquery-validation/dist/jquery.validate.min.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/sweetalert/dist/sweetalert.css?v=78">
+    <script type="text/.html" src="../system/vendor/sweetalert/dist/sweetalert.min.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sweetalert/SweetAlert.min.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js?v=78"></script>
+
+    <link rel="stylesheet"
+          href="../system/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css?v=78">
+    <script type="text/.html"
+            src="../system/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=78"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+
+        .display_modal{
+            display: block;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .topnav a {
+            float: left;
+            color: #75cfe3;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #75cfe3;
+            color: white;
+        }
+
+        
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100001 !important;
+            width: 100%;
+            height: 100%;
+
+        }
+        .loader {
+            position: fixed;
+
+            /*width: 550px;*/
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(/system/images/Spinner@2x-1.0s-200px-200px.gif?v=1) no-repeat center;
+            background-size: 200px;
+            z-index: 100002 !important;
+        }
+
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZKH3NRRG"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-X2ZKH3NRRG');
+
+    </script>
+
+</head>
+
+<body class="fit-banner">
+
+<div id="cover" style="display: none"></div>
+<div class="loader" id="loading_bar" style="display: none">
+</div>
+
+<div class="site-container">
+    <div class="cursor"></div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="menu-backdrop"></div>
+
+
+    <!--    -->            <!-- Main Header Bar-->
+
+
+        
+            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
+                <div style="float: right !important;">
+
+                    <a href="events.php" style="text-transform: uppercase;">events</a>
+                                            <a href="index.php#section2" style="text-transform: uppercase;">about</a>
+                    
+                                            <a href="index.php#partners" style="text-transform: uppercase;">partners</a>
+                                        <a href="athletes.php" style="text-transform: uppercase;">athletes</a>
+                    <a href="aps.php">APS</a>
+                    <!--                -->                                        <!--                <a href="store.php">official store</a>-->
+
+
+                                            <a href="login.php" style="text-transform: uppercase;">Login / Register</a>
+                    
+                </div>
+                <!--            <a href="../control/control.php?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
+                <!---->
+
+
+                <!--            -->                <!---->
+                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="../control/control.php?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="login.php" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->            </div>
+
+        
+
+        <!---->
+        <!--        <header>-->
+        <!--            <div class="outer-box clearfix" style="padding: 20px;">-->
+
+        <!--                <div class="bread-crumb">-->
+        <!--                    <ul class="clearfix">-->
+        <!--                        <li><a href="stats.php">athlete profile</a></li>-->
+        <!--                        <li><a href="store.php">official store</a></li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+
+
+        <!--            </div>-->
+        <!--        </header>-->
+
+
+        <header class="main-header-bar">
+            <div class="line-one" style="top: 145px!important;"></div>
+            <div class="line-two"></div>
+
+
+            <!--Header-Upper-->
+            <div class="header-bar-inner">
+                <div class="outer-box clearfix">
+
+                    <div class="main-logo-box" style="text-align: center;padding-top: 20px">
+                        <a href="index.php">
+                            <img src="images/img/logo-yc-300.png" style="width: 60px">
+                        </a>
+                    </div>
+                    <!--Nav Toggler-->
+                    <div class="nav-toggler" style="position: initial!important;padding-top: 25px;">
+                        <button class="toggler-btn">
+                            <span class="bar bar-one" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-two" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-three" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                        </button>
+                    </div>
+
+                    <!--Social Links-->
+                    <div class="social-links">
+                        <ul class="clearfix">
+                            <li><a href="https://www.instagram.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://x.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-twitter-square"></span></a></li>
+                            <li><a href="https://www.facebook.com/usayouthcombine" target="_blank"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                        </ul>
+                    </div>
+
+                    
+                        <!--Copyright Text-->
+                        <div class="copyright">&copy; Youth Combine 2024</div>
+
+                                    </div>
+
+                <!--Alt Logo Box-->
+                <div class="alt-logo-box"><a href="index.php"><img src="images/logo.png" alt=""></a></div>
+
+                <!--Nav Bg Box-->
+                <div class="nav-bg-box"></div>
+
+
+                <!--Main Nav Outer-->
+                <div class="main-nav-outer">
+                    <div class="nav-closer"><img src="images/icons/close-icon.png" alt=""></div>
+                    <div class="outer-nav-box" style="height: 450px!important;">
+
+                        <div class="top-bg"></div>
+                        <div class="bottom-bg"></div>
+                        <div class="main-nav-box" data-scrollbar="">
+                            <!--Logo Box-->
+                            <!--                        <div class="main-logo-box"><a href="index.php"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <div class="main-nav" style="padding: 50px 30px 0;">
+                                <ul class="navigation">
+                                    <li class="current"><a href="index.php">home</a></li>
+                                                                        <li class=""><a href="events.php">events</a></li>
+                                    <!--                                <li><a href="store.php">official store</a></li>-->
+                                    <!--                                <li><a href="about.php">about us</a></li>-->
+
+                                                                            <li><a href="login.php">login / register</a></li>
+                                    
+                                    
+                                    <li><a href="contact.php">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.php">philanthropy</a></li>-->
+                                                                    </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!--End Main Header -->
+    
+    <div class="scroll-container">
+        <div class="main-content-container" id="scroll-container">
+            <div class="body-bg-layer" style="background-image: url(images/img/fondo_portfolio_events.jpg);"></div>
+            <!-- Page Title -->
+            <section class="page-title" id="to-top-div">
+                <div class="auto-container">
+                    <h1><span>faq</span></h1>
+                    <div class="bread-crumb">
+                        <ul class="clearfix">
+                            <li><a href="index.php">home</a></li>
+                            <li class="current">faq</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--End Banner Section -->
+
+
+            <!--Plans Section-->
+            <section class="plans-section">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/faq-logo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>Plans and strategies that will help the Athlete improve and grow.</h4>
+                                <div class="text">
+                                    <p>Youth Combine USA® Inc. will provide young athletes from across the country with a
+                                        fun, safe, inclusive experience to test their athletic abilities in a variety of
+                                        disciplines that builds on the foundation of sportsmanship, hard work,
+                                        friendship, and teamwork.</p>
+                                    <p>Youth Combine USA® will help develop the life skills that will stay with young athletes long
+                                        after they “hang up their cleats”.</p>
+                                    <ul>
+                                        <li>Athlete Improvement</li>
+                                        <li>Data Driven Scouting</li>
+                                        <li>Digital Asset Protection</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <!--Services Section-->
+            <section class="services-two">
+                <div class="auto-container">
+
+
+                    <div class="row parent-row clearfix">
+
+                        <div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">1.	When should I arrive for the Youth Combine the day of? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">It is recommended that athletes arrive at least 30 minutes in advance of the start time of the combine and to finish your athlete profile registration. This will allow for a proper warm-up and familiarity of the site.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">2.	Will there be merchandise available on site for purchase? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Youth Combine USA and their brand partners may have merchandise available on site for purchase.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">3.	Will there be food and drink available during the Youth Combine? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Water will be provided to all participants at no charge on site. Restaurant partners of Youth Combine may also have food/drink available on site for purchase.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">4.	What type of shoes should I wear? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">All athletes must wear running shoes equipped for use on artificial turf. No track or baseball metal spikes will be permitted on any surfaces.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">5.	Will there be photographers or videographers at the Youth Combines? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Yes, photos and videos will be taken at each Youth Combine. Check out our social media, you may be featured in some of our posts!</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">6.	Will attending the Youth Combine potentially help me get recruited? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Yes, attending the Youth Combine can significantly enhance your chances of getting recruited. The event provides a unique platform for athletes to showcase their talents through various athletic stations, leading to the calculation of an Athletic Performance Score (APS). This comprehensive metric serves as a valuable tool for recruiters, colleges, and coaches to assess your overall athletic abilities. By participating in the combine, you not only demonstrate your skills but also gain exposure to potential opportunities for scholarships and collegiate sports programs. Networking with recruiters and engaging in the recruitment-focused aspects of the event can further solidify your presence in the athletic community and increase your visibility to those involved in talent scouting. Overall, Youth Combine offers a dynamic environment conducive to attracting attention and creating pathways for future athletic opportunities.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">7.	What is the best way to communicate with the Youth Combine to get my questions answered? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(255, 255, 255);">Your first step will be to review the FAQs to see if you have answered your question. If yo</span><span style="color: rgb(255, 255, 255);">u still require assistance, please email </span><a href="/cdn-cgi/l/email-protection#345d5a525b744d5b41405c575b59565d5a511a575b590b" target="_blank"><span style="color: rgb(255, 255, 255);"><span class="__cf_email__" data-cfemail="8ee7e0e8e1cef7e1fbfae6ede1e3ece7e0eba0ede1e3">[email&#160;protected]</span></span></a><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">8.	How do I get my combine results? How long does it take? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">You will receive an email within 48-72 hours after the combine session concludes.</span></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">9.	How can I volunteer at a Youth Combine? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Yes! There are many opportunities to get involved with a Youth Combine in your city. Drop us a line at <a href="/cdn-cgi/l/email-protection#50393e363f10293f252438333f3d32393e357e333f3d"><span class="__cf_email__" data-cfemail="20494e464f60594f555448434f4d42494e450e434f4d">[email&#160;protected]</span></a> to get more information.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">10.	What should I bring to the Youth Combine? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Athletes should come equipped with running shoes, shorts and your official Youth Combine t-shirt. We encourage you to leave any valuables at home.&nbsp;We are not responsible for any stolen or misplaced items.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">11.	Can I register a private session for our association? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Yes. However, available dates are limited in 2024. For more information on private association combines for multiple teams please email <a href="/cdn-cgi/l/email-protection#acc5c2cac3ecd5c3d9d8c4cfc3c1cec5c2c982cfc3c193" target="_blank"><span class="__cf_email__" data-cfemail="0a63646c654a73657f7e626965676863646f24696567">[email&#160;protected]</span></a></span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">12.	How do I get to the venue? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">See the events page for the location of each venue. </span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">13.	How will I know if I have been registered to the Youth Combine? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Upon completion of your online registration you will receive an email to complete your registration form and electronically sign the Waiver and Release Form. In addition you will receive an additional email with additional details for your upcoming Youth Combine. If you feel you have registered but did not receive an email please contact us at <a href="/cdn-cgi/l/email-protection#442d2a222b043d2b31302c272b29262d2a216a272b29"><span class="__cf_email__" data-cfemail="d9b0b7bfb699a0b6acadb1bab6b4bbb0b7bcf7bab6b4">[email&#160;protected]</span></a> and include the name you registered under along with the combine location.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">14.	Can parents, relatives or friends attend the Youth Combine as spectators? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">Yes! Parents, relatives and friends are welcome to attend the Youth Combine as a spectator and enjoy the experience. Each registrant is provided with one credential allowing a parent/guardian onto the field throughout the combine. Unfortunately additional credentials for field level access are not available.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><div class="accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="accordion-box clearfix">
+                                                <div class="accordion block">
+                                                    <div class="acc-btn" style="font-family: sans-serif!important;">15.	Do I get my money back if I cancel? 
+                                                        <i class="fa-regular fa-question"></i>
+                                                    </div>
+                                                    <div class="acc-content">
+                                                        <div class="content">
+                                                            <div class="text">
+                                                                <p><span style="color: rgb(153, 153, 153);">100% refunds are provided within 2 weeks of the Youth Combine. Cancellations within the 2 week window of your Youth Combine will have a $25 administrative fee charged.</span><br></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                    </div>
+                </div>
+            </section>
+
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
+        <div class="footer-inner">
+            <div class="auto-container">
+                <div class="footer-logo"><a href="index.php"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="info">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Address</div>
+                            <div class="text">9300 Wade Blvd, Suite 320 <br>Frisco, TX 75035</div>
+                        </div>
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Contact info</div>
+                            <div class="text">
+                                <a href="/cdn-cgi/l/email-protection#f59c9b939ab58c9a80819d969a98979c9b90db969a98"><span class="__cf_email__" data-cfemail="2b42454d446b52445e5f434844464942454e05484446">[email&#160;protected]</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-info"><a href="faq.php">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.php">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.php">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.php">Rules</a></div>
+                <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
+            </div>
+    </footer>
+
+</div>
+
+</div>
+<!--End Site Container-->
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/popper.min.js?v=78"></script>
+<script src="js/bootstrap.min.js?v=78"></script>
+<script src="js/jquery.fancybox.js?v=78"></script>
+<script src="js/mixitup.js?v=78"></script>
+<script src="js/smooth-scrollbar.js?v=78"></script>
+<script src="js/owl.js?v=78"></script>
+<script src="js/cursor-script.js?v=78"></script>
+<script src="js/bxslider.js?v=78"></script>
+<script src="js/wow.js?v=78"></script>
+<script src="js/custom-script.js?v=78"></script>
+
+</body>
+</html>
