@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="YOUTHCOMBINEApp">
+<head>
+    <meta charset="utf-8">
+    <title>Youth Combine</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css?v=78" rel="stylesheet">
+    <link href="css/style.css?v=78s" rel="stylesheet">
+    <link rel="shortcut icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css?v=78" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+    <script src="js/jquery.js?v=78"></script>
+
+    <script type="text/javascript" src="../system/vendor/angular/angular.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-ui-router/release/angular-ui-router.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-touch/angular-touch.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-ui-utils/ui-utils.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-animate/angular-animate.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-bootstrap/ui-bootstrap-tpls.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/datatables/media/js/jquery.dataTables.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/datatables/media/js/dataTables.responsive.js?v=78"></script>
+    <script type="text/javascript" src="../system/scripts/extentions/bootstrap-datatables.js?v=78"></script>
+    <script type="text/javascript" src="../system/scripts/extentions/dataTables.buttons.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/jquery.dataTables.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/responsive.dataTables.min.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/buttons.dataTables.min.css?v=78">
+    <script type="text/javascript"
+            src="../system/vendor/jquery-validation/dist/jquery.validate.min.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/sweetalert/dist/sweetalert.css?v=78">
+    <script type="text/javascript" src="../system/vendor/sweetalert/dist/sweetalert.min.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sweetalert/SweetAlert.min.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js?v=78"></script>
+
+    <link rel="stylesheet"
+          href="../system/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css?v=78">
+    <script type="text/javascript"
+            src="../system/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=78"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+
+        .display_modal{
+            display: block;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .topnav a {
+            float: left;
+            color: #75cfe3;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #75cfe3;
+            color: white;
+        }
+
+        
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100001 !important;
+            width: 100%;
+            height: 100%;
+
+        }
+        .loader {
+            position: fixed;
+
+            /*width: 550px;*/
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(/system/images/Spinner@2x-1.0s-200px-200px.gif?v=1) no-repeat center;
+            background-size: 200px;
+            z-index: 100002 !important;
+        }
+
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZKH3NRRG"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-X2ZKH3NRRG');
+
+    </script>
+
+</head>
+
+<body class="fit-banner">
+
+<div id="cover" style="display: none"></div>
+<div class="loader" id="loading_bar" style="display: none">
+</div>
+
+<div class="site-container">
+    <div class="cursor"></div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="menu-backdrop"></div>
+
+
+    <!--    -->            <!-- Main Header Bar-->
+
+
+        
+            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
+                <div style="float: right !important;">
+
+                    <a href="events.html" style="text-transform: uppercase;">events</a>
+                                            <a href="#section2" style="text-transform: uppercase;">about</a>
+                    
+                                            <a href="#partners" style="text-transform: uppercase;">partners</a>
+                                        <a href="athletes.html" style="text-transform: uppercase;">athletes</a>
+                    <a href="aps.html">APS</a>
+                    <!--                -->                                        <!--                <a href="store.html">official store</a>-->
+
+
+                                            <a href="login.html" style="text-transform: uppercase;">Login / Register</a>
+                    
+                </div>
+                <!--            <a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
+                <!---->
+
+
+                <!--            -->                <!---->
+                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->            </div>
+
+        
+
+        <!---->
+        <!--        <header>-->
+        <!--            <div class="outer-box clearfix" style="padding: 20px;">-->
+
+        <!--                <div class="bread-crumb">-->
+        <!--                    <ul class="clearfix">-->
+        <!--                        <li><a href="stats.html">athlete profile</a></li>-->
+        <!--                        <li><a href="store.html">official store</a></li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+
+
+        <!--            </div>-->
+        <!--        </header>-->
+
+
+        <header class="main-header-bar">
+            <div class="line-one" style="top: 145px!important;"></div>
+            <div class="line-two"></div>
+
+
+            <!--Header-Upper-->
+            <div class="header-bar-inner">
+                <div class="outer-box clearfix">
+
+                    <div class="main-logo-box" style="text-align: center;padding-top: 20px">
+                        <a href="index.html">
+                            <img src="images/img/logo-yc-300.png" style="width: 60px">
+                        </a>
+                    </div>
+                    <!--Nav Toggler-->
+                    <div class="nav-toggler" style="position: initial!important;padding-top: 25px;">
+                        <button class="toggler-btn">
+                            <span class="bar bar-one" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-two" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-three" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                        </button>
+                    </div>
+
+                    <!--Social Links-->
+                    <div class="social-links">
+                        <ul class="clearfix">
+                            <li><a href="https://www.instagram.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://x.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-twitter-square"></span></a></li>
+                            <li><a href="https://www.facebook.com/usayouthcombine" target="_blank"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                        </ul>
+                    </div>
+
+                    
+                        <!--Copyright Text-->
+                        <div class="copyright">&copy; Youth Combine 2024</div>
+
+                                    </div>
+
+                <!--Alt Logo Box-->
+                <div class="alt-logo-box"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+
+                <!--Nav Bg Box-->
+                <div class="nav-bg-box"></div>
+
+
+                <!--Main Nav Outer-->
+                <div class="main-nav-outer">
+                    <div class="nav-closer"><img src="images/icons/close-icon.png" alt=""></div>
+                    <div class="outer-nav-box" style="height: 450px!important;">
+
+                        <div class="top-bg"></div>
+                        <div class="bottom-bg"></div>
+                        <div class="main-nav-box" data-scrollbar="">
+                            <!--Logo Box-->
+                            <!--                        <div class="main-logo-box"><a href="index.html"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <div class="main-nav" style="padding: 50px 30px 0;">
+                                <ul class="navigation">
+                                    <li class="current"><a href="index.html">home</a></li>
+                                                                        <li class=""><a href="events.html">events</a></li>
+                                    <!--                                <li><a href="store.html">official store</a></li>-->
+                                    <!--                                <li><a href="about.html">about us</a></li>-->
+
+                                                                            <li><a href="login.html">login / register</a></li>
+                                    
+                                    
+                                    <li><a href="contact.html">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.html">philanthropy</a></li>-->
+                                                                    </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!--End Main Header -->
+    
+    <script type="text/javascript" src="https://player.vimeo.com/api/player.js"></script>
+
+    <div class="scroll-container">
+        <div class="main-content-container">
+
+            <!-- Banner Section -->
+            <section class="banner-seven">
+                <div class="banner-container">
+                    <div class="banner-slider-outer">
+                        <div class="slider-box">
+                            <div class="banner-slider-five">
+                                <!--Slide Item-->
+                                <div class="slide-item">
+                                                                            <div class="image-layer" id="sl1" style="background-image: url(images/img/slider01.jpg);"></div>
+                                    
+                                    <div class="auto-container">
+                                        <div class="content-box">
+                                            <div class="content">
+                                                <div class="clearfix">
+                                                    <div class="inner">
+                                                        <h1 style="color: white"><span>Your Athletic Performance Score (APS)</span></h1>
+                                                        <div class="text">The youth sports scene can be overwhelming, with pressure to specialize or join expensive programs.  This can cause stress, injury, and burnout, leading kids to abandon the sports they once loved.</div>
+                                                        <div class="links-box clearfix">
+                                                            <div class="link"><a href="#section1" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Slide Item-->
+                                <div class="slide-item">
+                                                                            <div class="image-layer" id="sl2" style="background-image: url(images/img/slider02.jpg);"></div>
+                                    
+                                    <div class="auto-container">
+                                        <div class="content-box">
+                                            <div class="content">
+                                                <div class="clearfix">
+                                                    <div class="inner">
+                                                        <h1 style="color: white"><span>Youth Combine® Mission</span></h1>
+                                                        <div class="text">Youth Combine allows kids aged 7-15 to assess their athletic skills in a fun, safe environment while promoting sportsmanship, friendships, hard work, and teamwork. Participants are evaluated at interactive stations and receive individual stats and nationwide comparisons. This feedback helps them celebrate strengths, address areas for improvement, and reach their full potential.</div>
+                                                        <div class="links-box clearfix">
+                                                            <div class="link"><a href="#section2" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Slide Item-->
+                                <div class="slide-item">
+                                                                            <div class="image-layer" id="sl3" style="background-image: url(images/img/slider03.jpg);"></div>
+                                    
+                                    <div class="auto-container">
+                                        <div class="content-box">
+                                            <div class="content">
+                                                <div class="clearfix">
+                                                    <div class="inner">
+                                                        <h1 style="color: white"><span>The Solution</span></h1>
+                                                        <div class="text">After participating in a Youth Combine event, athletes receive their physical testing data and APS (Athletic Performance Score). It is not sport-specific; instead, it evaluates a range of skills common to various sports. The Youth Combine platform then allows athletes to view their results and compare them nationally by age, gender, and sport.
+                                                            <br>
+                                                            Youth Combine celebrates strengths, promotes growth, and maximizes potential.
+                                                        </div>
+                                                        <div class="links-box clearfix">
+                                                            <div class="link"><a href="#section2" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pager-content" data-scrollbar="">
+                                <div class="pager-outer">
+                                    <div class="pager-box">
+                                        <div class="pager-two">
+                                            <a href="" class="pager-item active" data-slide-index="0"><div class="inner"><div class="text"><strong>Let us show you your APS</strong> What is your SAT Score? What is your GPA? What is your APS?</div></div></a>
+                                            <a href="" class="pager-item" data-slide-index="1"><div class="inner"><div class="text"><strong>Develop and Promote</strong> Positive athletic experiences that celebrate strengths, promote growth, and maximize potential.  </div></div></a>
+                                            <a href="" class="pager-item" data-slide-index="2"><div class="inner"><div class="text"><strong>Solution</strong> A standardized, quantitive snapshot of a young athlete’s overall skill set (think SAT) to take some of the chaos and guesswork out of youth sports.</div></div></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End Banner Section -->
+
+            <section class="plans-section" style="padding-top: 100px">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div style="padding:56.25% 0 0 0;">
+                            <iframe src="https://player.vimeo.com/video/983266522?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:60px;left:0;width:100%;height:100%;" title="Youth Combine"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="plans-section" id="section2" style="padding-top: 100px">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/faq-logo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>It’s a chaotic jungle out there in youth sports as parents pursue the dream of providing society with the next elite athlete. The journey is rough and costly in time, energy, and emotions.</h4>
+                                <div class="text">
+                                    <p>A standardized, quantitative assessment that provides a clear picture of a young athlete’s overall skill set across multiple sports. , in some cases building a roadmap towards professional or NCAA decisions.</p>
+                                    <p>Athletes engage in Youth Combine® event (up to 2 X per year) Each event handles 500
+                                        young athletes ages between 7 and 15 years (in age specific cohorts) Youth Combine
+                                        generate vast amounts of valuable sports science data</p>
+                                    <ul>
+                                        <li>Once combine is completed, the athlete will have a current APS specific to
+                                            their age category and independent of any one sport</li>
+                                        <li>The individual APS reflects an athlete’s true and quantitative abilities
+                                            along with their growth patterns</li>
+                                        <li>The Youth Combine® smart /social app offers vast visualization tools that make the
+                                            easy sharing of information to friends, family, coaches, and colleges</li>
+                                        <li>Youth Combine® participation and year-over-year APS data allows for rational planning
+                                            and decision making as the coach, parent and young athlete consider (pursue) navigate
+                                            specific sport decisions and/or NCAA scholarships</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;">
+                <div class="form-group">
+                    <a href="events.html">
+                        <button type="button" class="theme-btn btn-style-two"><span>EVENT REGISTRATION</span></button>
+                    </a>
+                </div>
+            </div>
+
+            <!--News Section-->
+            <section class="plans-section" id="section1" >
+                <div class="auto-container">
+
+                    <div class="def-title-box">
+                        <div class="patt"><span></span></div>
+                        <div class="subtitle" style="text-transform: uppercase;font-size: 28px">athlete partners</div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/athlete_micah.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>Micah Parsons, NFL Linebacker</h4>
+                                <div class="text">
+                                    <p>Micah Parsons is an American standout NFL linebacker for the Dallas Cowboys and is one of the NFL’s most formidable defensive players. In the 2021 NFL Draft, Parsons was selected 12th overall. He earned NFL Defensive Rookie of the Year honors in his rookie season and is a  2x Pro Bowl selection. Known for his incredible speed, versatility, and football intelligence, Micah continues to be a game-changer for the Cowboys, consistently delivering impactful plays and solidifying his reputation as a top-tier linebacker.</p>
+                                    <p>Off the field, Micah is dedicated to giving back to the community and inspiring young athletes. His involvement with Youth Combine USA showcases his commitment to empowering the next generation through sports and education.</p>
+                                    <p><a href="https://www.youtube.com/playlist?list=PLoqDIJHlyN3PWwUI1VDMbexYOQp2PtHur" target="_blank">Podcast: The Edge with Micah Parsons</a></p>
+                                    <p>Social Channels: @_MicahParsons11</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row clearfix" style="padding-top: 40px;">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/athlete_jordan.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>Jordan Spieth, PGA Tour</h4>
+                                <div class="text">
+                                    <p>Jordan Spieth is an American professional golfer on the PGA Tour and former world number one in the Official World Golf Ranking. He is a three-time major winner and the 2015 FedEx Cup champion. Spieth’s majors include: The Masters, The US Open, and The Open Championship.</p>
+                                    <p>Jordan’s focus goes beyond the golf course.  The Jordan Spieth Family Foundation offers a platform for Jordan to lend time, help grow awareness and offer financial support for four philanthropic areas: individuals with special needs, junior golf, military families and veterans, and pediatric cancer.</p>
+                                    <p><a href="http://www.jordanspiethgolf.com/foundation" target="_blank">jordanspiethgolf.com/foundation</a></p>
+                                    <p>Social Channels: @JordanSpieth</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <!--News Section-->
+<!--            <section class="news-section" id="partners">-->
+<!--                <div class="auto-container">-->
+<!---->
+<!--                    <div class="def-title-box">-->
+<!--                        <div class="patt"><span></span></div>-->
+<!--                        <div class="subtitle">brand partners</div>-->
+<!--                        <h3>Youth Combine® is Proud to work with these Best in Class Brands</h3>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="news">-->
+<!--                        <div class="row clearfix">-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.girlscouts.org/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_girlscouts.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://gretzkyhockeyschool.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_gretzky.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.marrstrength.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_marr.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.massageenvy.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_massage_envy.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.thesnackbadger.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_snack_badger.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.underarmour.com/en-us/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_underarmour.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://wearspf.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_1_wearspf.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!---->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </section>-->
+<!---->
+<!--            <section class="news-section" id="section1">-->
+<!--                <div class="auto-container">-->
+<!---->
+<!--                    <div class="def-title-box">-->
+<!--                        <div class="patt"><span></span></div>-->
+<!--                        <div class="subtitle">donation partners</div>-->
+<!--                        <h3>Youth Combine® is Proud to work with these Best in Class Brands</h3>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="news">-->
+<!--                        <div class="row clearfix">-->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.austinpretzel.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_2_austinpretzel.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://birdiebrands.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_2_birdiebrands.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://raisingcanes.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_2_canes.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.chick-fil-a.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_2_chicfila.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://livpur.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_2_livpur.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.starbucks.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_2_starbucks.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </section>-->
+<!---->
+<!---->
+<!--            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;padding-bottom: 100px">-->
+<!--                <div class="form-group">-->
+<!--                    <a href="events.html">-->
+<!--                        <button type="button" class="theme-btn btn-style-two"><span>EVENT REGISTRATION</span></button>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+<!--            <section class="news-section" id="section1">-->
+<!--                <div class="auto-container">-->
+<!---->
+<!--                    <div class="def-title-box">-->
+<!--                        <div class="patt"><span></span></div>-->
+<!--                        <div class="subtitle">special partners</div>-->
+<!--                        <h3>Youth Combine® is Proud to work with these Best in Class Brands</h3>-->
+<!--                    </div>-->
+<!---->
+<!--                    <div class="news">-->
+<!--                        <div class="row clearfix">-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.jesuitdallas.org/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_3_jesuit.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://snaxmedia.com/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_3_snax.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.sitickets.com" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_3_si.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!---->
+<!--                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">-->
+<!--                                <div class="inner-box">-->
+<!--                                    <a href="https://www.ymcadallas.org/" target="_blank">-->
+<!--                                        <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/logo_3_ymca.png?v=1" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!--                        </div>-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </section>-->
+<!---->
+<!---->
+<!--            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;padding-bottom: 100px">-->
+<!--                <div class="form-group">-->
+<!--                    <a href="events.html">-->
+<!--                        <button type="button" class="theme-btn btn-style-two"><span>EVENT REGISTRATION</span></button>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+                        <section class="news-section" id="partners">
+                            <div class="auto-container">
+
+                                <div class="def-title-box">
+                                    <div class="patt"><span></span></div>
+                                    <div class="subtitle">brand partners</div>
+                                    <h3>OUR SPONSORS & PARTNERS</h3>
+                                </div>
+
+                                <div class="news">
+                                    <div class="row clearfix">
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.austinpretzel.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/austinpretzel.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://birdiebrands.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/birdiebrands.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+<!--                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">-->
+<!--                                            <div class="inner-box">-->
+<!--                                                <a href="https://brandedstein.com/shop/?seller=youthcombine" target="_blank">-->
+<!--                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/brandedstein.png?v=1" alt=""></div>-->
+<!--                                                </a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.campisis.us/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/campisis.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.chick-fil-a.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/chickfila.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.chirosportspecialists.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/chirosport.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.corelifestyleclinic.com" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/core.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.girlscouts.org/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/girlscouts.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://gretzkyhockeyschool.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/gretzky.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.jesuitdallas.org/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/jesuit.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://livpur.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/livpur.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://marrstrength.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/marr.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.massageenvy.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/massageenvy.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.prestoncommonsdentalcare.com" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/preston.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://raisingcanes.com/home/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/raisingcane.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://shugsbagels.com" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/shugs.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.thesnackbadger.com" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/snackbadger.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://snaxmedia.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/snax.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.sitickets.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/sportsillustrated.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.starbucks.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/starbucks.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://www.underarmour.com/en-us/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/underarmour.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="news-block col-xl-2 col-lg-2 col-md-4 col-sm-12">
+                                            <div class="inner-box">
+                                                <a href="https://wearspf.com/" target="_blank">
+                                                    <div class="image-box" style="border-radius: 15px 15px 15px 15px;background:none!important;"><img src="images/img/wearspf.png?v=1" alt=""></div>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;padding-bottom: 100px">
+                    <div class="form-group">
+                        <a href="events.html">
+                            <button type="button" class="theme-btn btn-style-two"><span>EVENT REGISTRATION</span></button>
+                        </a>
+                    </div>
+                </div>
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
+        <div class="footer-inner">
+            <div class="auto-container">
+                <div class="footer-logo"><a href="index.html"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="info">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Address</div>
+                            <div class="text">9300 Wade Blvd, Suite 320 <br>Frisco, TX 75035</div>
+                        </div>
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Contact info</div>
+                            <div class="text">
+                                <a href="/cdn-cgi/l/email-protection#20494e464f60594f555448434f4d42494e450e434f4d"><span class="__cf_email__" data-cfemail="87eee9e1e8c7fee8f2f3efe4e8eae5eee9e2a9e4e8ea">[email&#160;protected]</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-info"><a href="faq.html">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.html">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.html">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.html">Rules</a></div>
+                <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
+            </div>
+    </footer>
+
+</div>
+
+</div>
+<!--End Site Container-->
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/popper.min.js?v=78"></script>
+<script src="js/bootstrap.min.js?v=78"></script>
+<script src="js/jquery.fancybox.js?v=78"></script>
+<script src="js/mixitup.js?v=78"></script>
+<script src="js/smooth-scrollbar.js?v=78"></script>
+<script src="js/owl.js?v=78"></script>
+<script src="js/cursor-script.js?v=78"></script>
+<script src="js/bxslider.js?v=78"></script>
+<script src="js/wow.js?v=78"></script>
+<script src="js/custom-script.js?v=78"></script>
+
+</body>
+</html>

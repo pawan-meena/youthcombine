@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="YOUTHCOMBINEApp">
+<head>
+    <meta charset="utf-8">
+    <title>Youth Combine</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css?v=78" rel="stylesheet">
+    <link href="css/style.css?v=78s" rel="stylesheet">
+    <link rel="shortcut icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css?v=78" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+    <script src="js/jquery.js?v=78"></script>
+
+    <script type="text/javascript" src="../system/vendor/angular/angular.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-ui-router/release/angular-ui-router.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-touch/angular-touch.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-ui-utils/ui-utils.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-animate/angular-animate.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-bootstrap/ui-bootstrap-tpls.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/datatables/media/js/jquery.dataTables.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/datatables/media/js/dataTables.responsive.js?v=78"></script>
+    <script type="text/javascript" src="../system/scripts/extentions/bootstrap-datatables.js?v=78"></script>
+    <script type="text/javascript" src="../system/scripts/extentions/dataTables.buttons.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/jquery.dataTables.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/responsive.dataTables.min.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/buttons.dataTables.min.css?v=78">
+    <script type="text/javascript"
+            src="../system/vendor/jquery-validation/dist/jquery.validate.min.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/sweetalert/dist/sweetalert.css?v=78">
+    <script type="text/javascript" src="../system/vendor/sweetalert/dist/sweetalert.min.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sweetalert/SweetAlert.min.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js?v=78"></script>
+
+    <link rel="stylesheet"
+          href="../system/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css?v=78">
+    <script type="text/javascript"
+            src="../system/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=78"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+
+        .display_modal{
+            display: block;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .topnav a {
+            float: left;
+            color: #75cfe3;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #75cfe3;
+            color: white;
+        }
+
+        
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100001 !important;
+            width: 100%;
+            height: 100%;
+
+        }
+        .loader {
+            position: fixed;
+
+            /*width: 550px;*/
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(/system/images/Spinner@2x-1.0s-200px-200px.gif?v=1) no-repeat center;
+            background-size: 200px;
+            z-index: 100002 !important;
+        }
+
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZKH3NRRG"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-X2ZKH3NRRG');
+
+    </script>
+
+</head>
+
+<body class="fit-banner">
+
+<div id="cover" style="display: none"></div>
+<div class="loader" id="loading_bar" style="display: none">
+</div>
+
+<div class="site-container">
+    <div class="cursor"></div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="menu-backdrop"></div>
+
+
+    <!--    -->            <!-- Main Header Bar-->
+
+
+        
+            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
+                <div style="float: right !important;">
+
+                    <a href="events.html" style="text-transform: uppercase;">events</a>
+                                            <a href="index.html#section2" style="text-transform: uppercase;">about</a>
+                    
+                                            <a href="index.html#partners" style="text-transform: uppercase;">partners</a>
+                                        <a href="athletes.html" style="text-transform: uppercase;">athletes</a>
+                    <a href="aps.html">APS</a>
+                    <!--                -->                                        <!--                <a href="store.html">official store</a>-->
+
+
+                                            <a href="login.html" style="text-transform: uppercase;">Login / Register</a>
+                    
+                </div>
+                <!--            <a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
+                <!---->
+
+
+                <!--            -->                <!---->
+                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->            </div>
+
+        
+
+        <!---->
+        <!--        <header>-->
+        <!--            <div class="outer-box clearfix" style="padding: 20px;">-->
+
+        <!--                <div class="bread-crumb">-->
+        <!--                    <ul class="clearfix">-->
+        <!--                        <li><a href="stats.html">athlete profile</a></li>-->
+        <!--                        <li><a href="store.html">official store</a></li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+
+
+        <!--            </div>-->
+        <!--        </header>-->
+
+
+        <header class="main-header-bar">
+            <div class="line-one" style="top: 145px!important;"></div>
+            <div class="line-two"></div>
+
+
+            <!--Header-Upper-->
+            <div class="header-bar-inner">
+                <div class="outer-box clearfix">
+
+                    <div class="main-logo-box" style="text-align: center;padding-top: 20px">
+                        <a href="index.html">
+                            <img src="images/img/logo-yc-300.png" style="width: 60px">
+                        </a>
+                    </div>
+                    <!--Nav Toggler-->
+                    <div class="nav-toggler" style="position: initial!important;padding-top: 25px;">
+                        <button class="toggler-btn">
+                            <span class="bar bar-one" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-two" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-three" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                        </button>
+                    </div>
+
+                    <!--Social Links-->
+                    <div class="social-links">
+                        <ul class="clearfix">
+                            <li><a href="https://www.instagram.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://x.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-twitter-square"></span></a></li>
+                            <li><a href="https://www.facebook.com/usayouthcombine" target="_blank"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                        </ul>
+                    </div>
+
+                    
+                        <!--Copyright Text-->
+                        <div class="copyright">&copy; Youth Combine 2024</div>
+
+                                    </div>
+
+                <!--Alt Logo Box-->
+                <div class="alt-logo-box"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+
+                <!--Nav Bg Box-->
+                <div class="nav-bg-box"></div>
+
+
+                <!--Main Nav Outer-->
+                <div class="main-nav-outer">
+                    <div class="nav-closer"><img src="images/icons/close-icon.png" alt=""></div>
+                    <div class="outer-nav-box" style="height: 450px!important;">
+
+                        <div class="top-bg"></div>
+                        <div class="bottom-bg"></div>
+                        <div class="main-nav-box" data-scrollbar="">
+                            <!--Logo Box-->
+                            <!--                        <div class="main-logo-box"><a href="index.html"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <div class="main-nav" style="padding: 50px 30px 0;">
+                                <ul class="navigation">
+                                    <li class="current"><a href="index.html">home</a></li>
+                                                                        <li class=""><a href="events.html">events</a></li>
+                                    <!--                                <li><a href="store.html">official store</a></li>-->
+                                    <!--                                <li><a href="about.html">about us</a></li>-->
+
+                                                                            <li><a href="login.html">login / register</a></li>
+                                    
+                                    
+                                    <li><a href="contact.html">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.html">philanthropy</a></li>-->
+                                                                    </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!--End Main Header -->
+    
+    <div class="scroll-container">
+        <div class="main-content-container">
+
+
+            <!--News Section-->
+            <section class="plans-section" id="section1" style="padding-top: 40px">
+                <div class="auto-container">
+
+                    <div class="def-title-box">
+                        <div class="patt"><span></span></div>
+                        <div class="subtitle" style="text-transform: uppercase;font-size: 28px">athlete partners</div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/athlete_micah.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>Micah Parsons, NFL Linebacker</h4>
+                                <div class="text">
+                                    <p>Micah Parsons is an American standout NFL linebacker for the Dallas Cowboys and is one of the NFL’s most formidable defensive players. In the 2021 NFL Draft, Parsons was selected 12th overall. He earned NFL Defensive Rookie of the Year honors in his rookie season and is a  2x Pro Bowl selection. Known for his incredible speed, versatility, and football intelligence, Micah continues to be a game-changer for the Cowboys, consistently delivering impactful plays and solidifying his reputation as a top-tier linebacker.</p>
+                                    <p>Off the field, Micah is dedicated to giving back to the community and inspiring young athletes. His involvement with Youth Combine USA showcases his commitment to empowering the next generation through sports and education.</p>
+                                    <p><a href="https://www.youtube.com/playlist?list=PLoqDIJHlyN3PWwUI1VDMbexYOQp2PtHur" target="_blank">Podcast: The Edge with Micah Parsons</a></p>
+                                    <p>Social Channels: @_MicahParsons11</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row clearfix" style="padding-top: 40px;">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/athlete_jordan.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>Jordan Spieth, PGA Tour</h4>
+                                <div class="text">
+                                    <p>Jordan Spieth is an American professional golfer on the PGA Tour and former world number one in the Official World Golf Ranking. He is a three-time major winner and the 2015 FedEx Cup champion. Spieth’s majors include: The Masters, The US Open, and The Open Championship.</p>
+                                    <p>Jordan’s focus goes beyond the golf course.  The Jordan Spieth Family Foundation offers a platform for Jordan to lend time, help grow awareness and offer financial support for four philanthropic areas: individuals with special needs, junior golf, military families and veterans, and pediatric cancer.</p>
+                                    <p><a href="http://www.jordanspiethgolf.com/foundation" target="_blank">jordanspiethgolf.com/foundation</a></p>
+                                    <p>Social Channels: @JordanSpieth</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center;padding-bottom: 100px">
+                <div class="form-group">
+                    <a href="events.html">
+                        <button type="button" class="theme-btn btn-style-two"><span>EVENT REGISTRATION</span></button>
+                    </a>
+                </div>
+            </div>
+
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
+        <div class="footer-inner">
+            <div class="auto-container">
+                <div class="footer-logo"><a href="index.html"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="info">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Address</div>
+                            <div class="text">9300 Wade Blvd, Suite 320 <br>Frisco, TX 75035</div>
+                        </div>
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Contact info</div>
+                            <div class="text">
+                                <a href="/cdn-cgi/l/email-protection#1c75727a735c65736968747f73717e757279327f7371"><span class="__cf_email__" data-cfemail="1970777f765960766c6d717a76747b70777c377a7674">[email&#160;protected]</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-info"><a href="faq.html">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.html">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.html">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.html">Rules</a></div>
+                <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
+            </div>
+    </footer>
+
+</div>
+
+</div>
+<!--End Site Container-->
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/popper.min.js?v=78"></script>
+<script src="js/bootstrap.min.js?v=78"></script>
+<script src="js/jquery.fancybox.js?v=78"></script>
+<script src="js/mixitup.js?v=78"></script>
+<script src="js/smooth-scrollbar.js?v=78"></script>
+<script src="js/owl.js?v=78"></script>
+<script src="js/cursor-script.js?v=78"></script>
+<script src="js/bxslider.js?v=78"></script>
+<script src="js/wow.js?v=78"></script>
+<script src="js/custom-script.js?v=78"></script>
+
+</body>
+</html>

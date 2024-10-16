@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="YOUTHCOMBINEApp">
+<head>
+    <meta charset="utf-8">
+    <title>Youth Combine</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css?v=78" rel="stylesheet">
+    <link href="css/style.css?v=78s" rel="stylesheet">
+    <link rel="shortcut icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css?v=78" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+    <script src="js/jquery.js?v=78"></script>
+
+    <script type="text/javascript" src="../system/vendor/angular/angular.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-ui-router/release/angular-ui-router.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-touch/angular-touch.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-ui-utils/ui-utils.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/javascript" src="../system/vendor/angular-animate/angular-animate.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-bootstrap/ui-bootstrap-tpls.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/datatables/media/js/jquery.dataTables.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/datatables/media/js/dataTables.responsive.js?v=78"></script>
+    <script type="text/javascript" src="../system/scripts/extentions/bootstrap-datatables.js?v=78"></script>
+    <script type="text/javascript" src="../system/scripts/extentions/dataTables.buttons.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/jquery.dataTables.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/responsive.dataTables.min.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/buttons.dataTables.min.css?v=78">
+    <script type="text/javascript"
+            src="../system/vendor/jquery-validation/dist/jquery.validate.min.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/sweetalert/dist/sweetalert.css?v=78">
+    <script type="text/javascript" src="../system/vendor/sweetalert/dist/sweetalert.min.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/angular-sweetalert/SweetAlert.min.js?v=78"></script>
+    <script type="text/javascript"
+            src="../system/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js?v=78"></script>
+
+    <link rel="stylesheet"
+          href="../system/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css?v=78">
+    <script type="text/javascript"
+            src="../system/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=78"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+
+        .display_modal{
+            display: block;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .topnav a {
+            float: left;
+            color: #75cfe3;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #75cfe3;
+            color: white;
+        }
+
+        
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100001 !important;
+            width: 100%;
+            height: 100%;
+
+        }
+        .loader {
+            position: fixed;
+
+            /*width: 550px;*/
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(/system/images/Spinner@2x-1.0s-200px-200px.gif?v=1) no-repeat center;
+            background-size: 200px;
+            z-index: 100002 !important;
+        }
+
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZKH3NRRG"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-X2ZKH3NRRG');
+
+    </script>
+
+</head>
+
+<body class="fit-banner">
+
+<div id="cover" style="display: none"></div>
+<div class="loader" id="loading_bar" style="display: none">
+</div>
+
+<div class="site-container">
+    <div class="cursor"></div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="menu-backdrop"></div>
+
+
+    <!--    -->            <!-- Main Header Bar-->
+
+
+        
+            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
+                <div style="float: right !important;">
+
+                    <a href="events.html" style="text-transform: uppercase;">events</a>
+                                            <a href="index.html#section2" style="text-transform: uppercase;">about</a>
+                    
+                                            <a href="index.html#partners" style="text-transform: uppercase;">partners</a>
+                                        <a href="athletes.html" style="text-transform: uppercase;">athletes</a>
+                    <a href="aps.html">APS</a>
+                    <!--                -->                                        <!--                <a href="store.html">official store</a>-->
+
+
+                                            <a href="login.html" style="text-transform: uppercase;">Login / Register</a>
+                    
+                </div>
+                <!--            <a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
+                <!---->
+
+
+                <!--            -->                <!---->
+                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->            </div>
+
+        
+
+        <!---->
+        <!--        <header>-->
+        <!--            <div class="outer-box clearfix" style="padding: 20px;">-->
+
+        <!--                <div class="bread-crumb">-->
+        <!--                    <ul class="clearfix">-->
+        <!--                        <li><a href="stats.html">athlete profile</a></li>-->
+        <!--                        <li><a href="store.html">official store</a></li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+
+
+        <!--            </div>-->
+        <!--        </header>-->
+
+
+        <header class="main-header-bar">
+            <div class="line-one" style="top: 145px!important;"></div>
+            <div class="line-two"></div>
+
+
+            <!--Header-Upper-->
+            <div class="header-bar-inner">
+                <div class="outer-box clearfix">
+
+                    <div class="main-logo-box" style="text-align: center;padding-top: 20px">
+                        <a href="index.html">
+                            <img src="images/img/logo-yc-300.png" style="width: 60px">
+                        </a>
+                    </div>
+                    <!--Nav Toggler-->
+                    <div class="nav-toggler" style="position: initial!important;padding-top: 25px;">
+                        <button class="toggler-btn">
+                            <span class="bar bar-one" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-two" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-three" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                        </button>
+                    </div>
+
+                    <!--Social Links-->
+                    <div class="social-links">
+                        <ul class="clearfix">
+                            <li><a href="https://www.instagram.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://x.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-twitter-square"></span></a></li>
+                            <li><a href="https://www.facebook.com/usayouthcombine" target="_blank"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                        </ul>
+                    </div>
+
+                    
+                        <!--Copyright Text-->
+                        <div class="copyright">&copy; Youth Combine 2024</div>
+
+                                    </div>
+
+                <!--Alt Logo Box-->
+                <div class="alt-logo-box"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+
+                <!--Nav Bg Box-->
+                <div class="nav-bg-box"></div>
+
+
+                <!--Main Nav Outer-->
+                <div class="main-nav-outer">
+                    <div class="nav-closer"><img src="images/icons/close-icon.png" alt=""></div>
+                    <div class="outer-nav-box" style="height: 450px!important;">
+
+                        <div class="top-bg"></div>
+                        <div class="bottom-bg"></div>
+                        <div class="main-nav-box" data-scrollbar="">
+                            <!--Logo Box-->
+                            <!--                        <div class="main-logo-box"><a href="index.html"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <div class="main-nav" style="padding: 50px 30px 0;">
+                                <ul class="navigation">
+                                    <li class="current"><a href="index.html">home</a></li>
+                                                                        <li class=""><a href="events.html">events</a></li>
+                                    <!--                                <li><a href="store.html">official store</a></li>-->
+                                    <!--                                <li><a href="about.html">about us</a></li>-->
+
+                                                                            <li><a href="login.html">login / register</a></li>
+                                    
+                                    
+                                    <li><a href="contact.html">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.html">philanthropy</a></li>-->
+                                                                    </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!--End Main Header -->
+    
+<style>
+
+    .portfolio-block .overlay{
+        background: none;
+    }
+
+    .portfolio-block .cat{
+        color: #75cfe3;
+    }
+
+    .portfolio-block h5 a{
+        color: #75cfe3;
+    }
+
+    .portfolio-block.coming:hover .overlay {
+        background: #F79400!important;
+    }
+
+
+</style>
+
+    <div class="scroll-container">
+    <div class="main-content-container" id="scroll-container">
+    <div class="body-bg-layer" style="background-image: url(images/img/fondo_portfolio_events.jpg);"></div>
+    <!-- Page Title -->
+    <section class="page-title" id="to-top-div">
+        <div class="auto-container">
+            <h1><span>events</span></h1>
+            <div class="bread-crumb">
+                <ul class="clearfix">
+                    <li><a href="index.html">home</a></li>
+                    <li class="current">events</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Banner Section -->
+
+    <!--Portfolio Section-->
+    <section class="portfolio-section">
+        <div class="auto-container">
+
+            <div class="mixitup-gallery">
+
+                <!--Filter-->
+                <div class="gallery-filters centered clearfix">
+                    <ul class="filter-tabs filter-btns clearfix">
+                        <li class="active filter" data-role="button" data-filter="all">Show All</li>
+                        <li class="filter" data-role="button" data-filter=".1">East</li><li class="filter" data-role="button" data-filter=".4">South  </li><li class="filter" data-role="button" data-filter=".5">West</li><li class="filter" data-role="button" data-filter=".7">Midwest</li>
+                    </ul>
+                </div>
+                <div class="filter-list row clearfix">
+
+                    <div class="portfolio-block mix all 4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1727969859.png" alt=""></div>
+                                                    <div class="overlay" onclick="open_event_sp(15)">
+                                                        <div class="more-link"><a href="event_sp.html?event_id=15" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>South  </span></div>
+                                                            <h5><a href="event_sp.html?event_id=15" >Oklahoma City</a></h5>
+                                                            <h5><a href="event_sp.html?event_id=15" >November 16, 2024</a></h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    <div class="portfolio-block coming mix all 4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724335141.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>South  </span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Jordan Spieth, Dallas, TX</h5>
+                                                            <h5>2024</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 1 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724178062.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>East</span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Orlando, FL</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 1 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724177825.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>East</span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Baltimore, MD</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 5 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724177918.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>West</span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Los Angeles, CA</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 5 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724177899.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>West</span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Denver, CO</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724178133.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>South  </span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Scottsdale, AZ</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 4 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724178101.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>South  </span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Nashville, TN</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><div class="portfolio-block coming mix all 7 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                                                <div class="inner-box">
+                                                    <div class="image"><img src="http://youthcombine.s3.amazonaws.com/1724178210.png" alt=""></div>
+                                                    <div class="overlay">
+                                                        <div class="more-link"></div>
+                                                        <div class="inner">
+                                                            <div class="cat"><span>Midwest</span></div>
+                                                            <h3>Coming Soon</h5>
+                                                            <h5>Chicago, IL</h5>
+                                                            <h5>2025</h5>
+                
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Section-->
+    <section class="contact-section">
+        <div class="auto-container">
+            <div class="def-title-box">
+
+                <h3>Don’t see an event in your area? We will be adding more dates throughout the year, so be sure to signup and be the first to know when an event is scheduled in your area.</h3>
+            </div>
+
+
+            <div class="contact-box" data-ng-controller="NewsletterCtrl">
+                <div class="row clearfix" style="padding-top: 70px;">
+                    <div class="form-col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+                        <div class="contact-form">
+                            <form>
+
+                                <input type="hidden" name="who" value="validate_login">
+
+                                <div class="row clearfix">
+                                    <div class="inner-col col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+
+                                            <span id="error_email"
+                                                  style="display:none;color:red;">Please Fill Email</span>
+                                            <span id="error_email_format" style="display:none;color:red;">Email Error Format</span>
+
+                                            <div class="field-label"><span class="icon fa fa-solid fa-envelope"></span>
+                                                Email
+                                            </div>
+                                            <div class="field-inner"><input type="text" id="email" name="email"
+                                                                            required><i class="dot"></i></div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="inner-col col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+
+                                            <span id="error_zip_code" style="display:none;color:red;">Please Fill Zip Code</span>
+
+                                            <div class="field-label"><span class="icon far fa-location-dot"></span> Zip
+                                                Code
+                                            </div>
+                                            <div class="field-inner"><input type="text" id="zip_code" name="zip_code"
+                                                                            required><i class="dot"></i></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="inner-col col-lg-12 col-md-12 col-sm-12" style="padding-top: 70px;">
+
+                                        <div class="form-group">
+                                            <button type="button" class="theme-btn btn-style-two"
+                                                    ng-click="register_newsletter()"><span>JOIN NEWSLETTER</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="jquerys/newsletter.js?v=78"></script>
+
+        <script>
+
+            function open_event_sp(event_id){
+
+                window.location.href = "event_sp.html?event_id="+event_id;
+
+            }
+
+        </script>
+
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
+        <div class="footer-inner">
+            <div class="auto-container">
+                <div class="footer-logo"><a href="index.html"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="info">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Address</div>
+                            <div class="text">9300 Wade Blvd, Suite 320 <br>Frisco, TX 75035</div>
+                        </div>
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Contact info</div>
+                            <div class="text">
+                                <a href="/cdn-cgi/l/email-protection#dfb6b1b9b09fa6b0aaabb7bcb0b2bdb6b1baf1bcb0b2"><span class="__cf_email__" data-cfemail="0c65626a634c75637978646f63616e656269226f6361">[email&#160;protected]</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-info"><a href="faq.html">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.html">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.html">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.html">Rules</a></div>
+                <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
+            </div>
+    </footer>
+
+</div>
+
+</div>
+<!--End Site Container-->
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/popper.min.js?v=78"></script>
+<script src="js/bootstrap.min.js?v=78"></script>
+<script src="js/jquery.fancybox.js?v=78"></script>
+<script src="js/mixitup.js?v=78"></script>
+<script src="js/smooth-scrollbar.js?v=78"></script>
+<script src="js/owl.js?v=78"></script>
+<script src="js/cursor-script.js?v=78"></script>
+<script src="js/bxslider.js?v=78"></script>
+<script src="js/wow.js?v=78"></script>
+<script src="js/custom-script.js?v=78"></script>
+
+</body>
+</html>
+
+

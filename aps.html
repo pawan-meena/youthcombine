@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="en" data-ng-app="YOUTHCOMBINEApp">
+<head>
+    <meta charset="utf-8">
+    <title>Youth Combine</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css?v=78" rel="stylesheet">
+    <link href="css/style.css?v=78s" rel="stylesheet">
+    <link rel="shortcut icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/img/yc-favicon.ico" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css?v=78" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+
+    <script src="js/jquery.js?v=78"></script>
+
+    <script type="text/.html" src="../system/vendor/angular/angular.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-ui-router/release/angular-ui-router.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-touch/angular-touch.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-ui-utils/ui-utils.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sanitize/angular-sanitize.js?v=78"></script>
+    <script type="text/.html" src="../system/vendor/angular-animate/angular-animate.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-bootstrap/ui-bootstrap-tpls.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/datatables/media/js/jquery.dataTables.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/datatables/media/js/dataTables.responsive.js?v=78"></script>
+    <script type="text/.html" src="../system/scripts/extentions/bootstrap-datatables.js?v=78"></script>
+    <script type="text/.html" src="../system/scripts/extentions/dataTables.buttons.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/jquery.dataTables.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/responsive.dataTables.min.css?v=78">
+    <link rel="stylesheet" href="../system/vendor/datatables/media/css/buttons.dataTables.min.css?v=78">
+    <script type="text/.html"
+            src="../system/vendor/jquery-validation/dist/jquery.validate.min.js?v=78"></script>
+    <link rel="stylesheet" href="../system/vendor/sweetalert/dist/sweetalert.css?v=78">
+    <script type="text/.html" src="../system/vendor/sweetalert/dist/sweetalert.min.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/angular-sweetalert/SweetAlert.min.js?v=78"></script>
+    <script type="text/.html"
+            src="../system/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js?v=78"></script>
+
+    <link rel="stylesheet"
+          href="../system/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css?v=78">
+    <script type="text/.html"
+            src="../system/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.js?v=78"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+
+        .display_modal{
+            display: block;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #000000;
+        }
+
+        .topnav a {
+            float: left;
+            color: #75cfe3;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #75cfe3;
+            color: white;
+        }
+
+        
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100001 !important;
+            width: 100%;
+            height: 100%;
+
+        }
+        .loader {
+            position: fixed;
+
+            /*width: 550px;*/
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url(/system/images/Spinner@2x-1.0s-200px-200px.gif?v=1) no-repeat center;
+            background-size: 200px;
+            z-index: 100002 !important;
+        }
+
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2ZKH3NRRG"></script>
+    <script> window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-X2ZKH3NRRG');
+
+    </script>
+
+</head>
+
+<body class="fit-banner">
+
+<div id="cover" style="display: none"></div>
+<div class="loader" id="loading_bar" style="display: none">
+</div>
+
+<div class="site-container">
+    <div class="cursor"></div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="menu-backdrop"></div>
+
+
+    <!--    -->            <!-- Main Header Bar-->
+
+
+        
+            <div class="topnav" style="position: fixed;width: 100%;z-index: 1000;">
+                <div style="float: right !important;">
+
+                    <a href="events.html" style="text-transform: uppercase;">events</a>
+                                            <a href="index.html#section2" style="text-transform: uppercase;">about</a>
+                    
+                                            <a href="index.html#partners" style="text-transform: uppercase;">partners</a>
+                                        <a href="athletes.html" style="text-transform: uppercase;">athletes</a>
+                    <a href="aps.html">APS</a>
+                    <!--                -->                                        <!--                <a href="store.html">official store</a>-->
+
+
+                                            <a href="login.html" style="text-transform: uppercase;">Login / Register</a>
+                    
+                </div>
+                <!--            <a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a>-->
+                <!---->
+
+
+                <!--            -->                <!---->
+                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="../control/control.html?who=logout"  class="theme-btn btn-style-one"><span>logout<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->                <!--                <div class="links-box clearfix" style="float: right;">-->
+                <!--                    <div class="link"><a href="login.html" class="theme-btn btn-style-one"><span>Login / register<i class="icon fa fa-arrow-right"></i></span></a></div>-->
+                <!--                </div>-->
+                <!---->
+                <!--            -->            </div>
+
+        
+
+        <!---->
+        <!--        <header>-->
+        <!--            <div class="outer-box clearfix" style="padding: 20px;">-->
+
+        <!--                <div class="bread-crumb">-->
+        <!--                    <ul class="clearfix">-->
+        <!--                        <li><a href="stats.html">athlete profile</a></li>-->
+        <!--                        <li><a href="store.html">official store</a></li>-->
+        <!--                    </ul>-->
+        <!--                </div>-->
+
+
+        <!--            </div>-->
+        <!--        </header>-->
+
+
+        <header class="main-header-bar">
+            <div class="line-one" style="top: 145px!important;"></div>
+            <div class="line-two"></div>
+
+
+            <!--Header-Upper-->
+            <div class="header-bar-inner">
+                <div class="outer-box clearfix">
+
+                    <div class="main-logo-box" style="text-align: center;padding-top: 20px">
+                        <a href="index.html">
+                            <img src="images/img/logo-yc-300.png" style="width: 60px">
+                        </a>
+                    </div>
+                    <!--Nav Toggler-->
+                    <div class="nav-toggler" style="position: initial!important;padding-top: 25px;">
+                        <button class="toggler-btn">
+                            <span class="bar bar-one" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-two" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                            <span class="bar bar-three" style="border-bottom: 3px solid #75cfe3!important;"></span>
+                        </button>
+                    </div>
+
+                    <!--Social Links-->
+                    <div class="social-links">
+                        <ul class="clearfix">
+                            <li><a href="https://www.instagram.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-instagram"></span></a></li>
+                            <li><a href="https://x.com/youthcombineusa" target="_blank"><span
+                                            class="fab fa-twitter-square"></span></a></li>
+                            <li><a href="https://www.facebook.com/usayouthcombine" target="_blank"><span
+                                            class="fab fa-facebook-square"></span></a></li>
+                        </ul>
+                    </div>
+
+                    
+                        <!--Copyright Text-->
+                        <div class="copyright">&copy; Youth Combine 2024</div>
+
+                                    </div>
+
+                <!--Alt Logo Box-->
+                <div class="alt-logo-box"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+
+                <!--Nav Bg Box-->
+                <div class="nav-bg-box"></div>
+
+
+                <!--Main Nav Outer-->
+                <div class="main-nav-outer">
+                    <div class="nav-closer"><img src="images/icons/close-icon.png" alt=""></div>
+                    <div class="outer-nav-box" style="height: 450px!important;">
+
+                        <div class="top-bg"></div>
+                        <div class="bottom-bg"></div>
+                        <div class="main-nav-box" data-scrollbar="">
+                            <!--Logo Box-->
+                            <!--                        <div class="main-logo-box"><a href="index.html"><img src="images/img/logo_menu.png" style="width: 60px"></a></div>-->
+                            <div class="main-nav" style="padding: 50px 30px 0;">
+                                <ul class="navigation">
+                                    <li class="current"><a href="index.html">home</a></li>
+                                                                        <li class=""><a href="events.html">events</a></li>
+                                    <!--                                <li><a href="store.html">official store</a></li>-->
+                                    <!--                                <li><a href="about.html">about us</a></li>-->
+
+                                                                            <li><a href="login.html">login / register</a></li>
+                                    
+                                    
+                                    <li><a href="contact.html">contact</a></li>
+                                    <!--                                <li><a href="philanthropy.html">philanthropy</a></li>-->
+                                                                    </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!--End Header Upper-->
+        </header>
+        <!--End Main Header -->
+    
+    <script type="text/.html" src="https://player.vimeo.com/api/player.js"></script>
+
+    <div class="scroll-container">
+        <div class="main-content-container">
+
+            <section class="plans-section" id="section2" style="padding-top: 100px">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Image-->
+                        <div class="image-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <div class="image">
+                                    <div class="bg-pattern"></div>
+                                    <img src="images/img/faq-logo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Content-->
+                        <div class="text-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner">
+                                <h4>It’s a chaotic jungle out there in youth sports as parents pursue the dream of providing society with the next elite athlete. The journey is rough and costly in time, energy, and emotions.</h4>
+                                <div class="text">
+                                    <p>A Standardized, quantitative snapshot of a young athlete’s overall skill set to take some chaos and guesswork  out of youth sports, in some cases building a roadmap towards professional or NCAA decisions.</p>
+                                    <p>Athletes engage in Youth Combine® event (up to 2 X per year) Each event handles 500
+                                        young athletes ages between 7 and 15 years (in age specific cohorts) Youth Combine
+                                        generate vast amounts of valuable sports science data</p>
+                                    <ul>
+                                        <li>Once combine is completed, the athlete will have a current APS specific to
+                                            their age category and independent of any one sport</li>
+                                        <li>The individual APS reflects an athlete’s true and quantitative abilities
+                                            along with their growth patterns</li>
+                                        <li>The Youth Combine® smart /social app offers vast visualization tools that make the
+                                            easy sharing of information to friends, family, coaches, and colleges</li>
+                                        <li>Youth Combine® participation and year-over-year APS data allows for rational planning
+                                            and decision making as the coach, parent and young athlete consider (pursue) navigate
+                                            specific sport decisions and/or NCAA scholarships</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="news-section">
+                <div class="auto-container">
+
+                    <div class="def-title-box">
+                        <div class="patt"><span></span></div>
+
+                        <h3>APS Combine Testing</h3>
+                    </div>
+
+                    <div class="news">
+                        <div class="row clearfix">
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-50yard.jpg" alt=""></div>
+                                    <div class="sport-1" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 255px;">40 Yard Dash
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        The 40 Yard Dash is a test of speed and power. Starting from a three-point stance each athlete runs 40 yards as fast as they can. Split times are recorded at 40 and 50 yards to measure acceleration.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-60yard.jpg" alt=""></div>
+                                    <div class="sport-2" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 255px;">60 Yard Shuttle
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        The 60 Yard Shuttle is an anaerobic test featuring a ladder shuttle of progressing distances. From a starting line, each athlete runs 5 yards and back, then 10 yards and back, then 15 yards and back, touching the line each time.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-cones.jpg" alt=""></div>
+                                    <div style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 255px;">Cone Alley
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        The athlete will start at the back row and run forward. Always keep the forward cone in front of the body. Going back to the first row will be determined by the coach. Run forward, stop with the cone in front of you, backpedal to the next cone in the first row, and go around behind it and run forward.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-broadjump.jpg" alt=""></div>
+                                    <div class="sport-4" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 430px;">Broad Jump
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        Similar to the vertical jump, the Broad Jump is a test of lower body strength, explosion, and power. The broad jump measures how far you can jump, not how high. From a standing position, the player jumps forward off two feet as far as he can.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-verticaljump.jpg" alt=""></div>
+                                    <div class="sport-5" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 430px;">Vertical Jump
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        Similar to the Broad Jump, the Vertical Jump is test of explosion and power. The player jumps off both feet straight up as high as he or she can.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-static.jpg" alt=""></div>
+                                    <div class="sport-6" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 430px;">Static Station
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        Measurements for the following will be recorded:
+                                        <br>
+                                        Standing Height: Measured to the nearest 0.25 inch.
+                                        <br>
+                                        <ul>
+                                            <li>Weight: Using a calibrated beam-type balance and recorded to the nearest quarter lb.</li>
+                                            <li>Hand Grip: Test of hand grip muscle strength, conducted on each hand.</li>
+                                            <li>Wingspan: Measured to the nearest 0.25 inch from he middle finger tip to middle finger tip.</li>
+                                            <li>Hand Size: Measured to the nearest 0.25 inch.</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-ldrill.jpg" alt=""></div>
+                                    <div class="sport-7" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 508px;">L-Drill
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        The 3 Cone or "L-Drill" is one of the most popular combine drills used to measure speed and agility.  This drill requires multiple changes of direction in a small space. The player starts by getting down in a three-point stance next to Cone 1. On the command 'Go', he runs to Cone 2, bends down and touches a line with his right hand. Then he turns and runs back to Cone 1, bends down and touches that line with his right hand. Then he runs back to Cone 2 and around the outside of it, weaves inside Cone 3, then around the outside of Cones 3 and 2 before finishing at Cone 1. The player must run forward while altering his running direction, as opposed to strictly stopping and starting in opposite directions.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="image-box"
+                                         style="border-radius: 15px 15px 15px 15px;background:none!important;"><img
+                                            src="images/img/xs-runshuttle.jpg" alt=""></div>
+                                    <div class="sport-8" style="position: absolute;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    padding: 30px 20px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    background: #15181b;
+    font-family: 'Telegraf_Regular', sans-serif;
+    border-radius: 0 0 20px 20px;
+    z-index: 3;
+    margin-bottom: 508px;">Run-Shuttle-Run
+                                    </div>
+                                    <div class="lower"
+                                         style="background: none!important;text-align: justify;padding: 35px 35px 35px;">
+                                        It is a straight line drill. The athlete runs to the first cone, turns to shuffle to the next one, and then turns and runs to the last cone. Hit the brakes and return to the start. Run, shuffle, run. The middle 4 yards are always shuffle and the outside 5 yards are always run.
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+    <!--Main Footer-->
+    <footer class="main-footer">
+        <button class="scroll-top scroll-to-target" data-target="html" id="scroll-to-top"><span class="icon fa fa-arrow-alt-circle-up"></span></button>
+        <div class="footer-inner">
+            <div class="auto-container">
+                <div class="footer-logo"><a href="index.html"><img src="images/img/logo-yc-300.png" style="height: 100px"></a></div>
+                <div class="info">
+                    <div class="row clearfix">
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Address</div>
+                            <div class="text">9300 Wade Blvd, Suite 320 <br>Frisco, TX 75035</div>
+                        </div>
+                        <!--Block-->
+                        <div class="info-block col-lg-6 col-md-6 col-sm-12">
+                            <div class="i-title">Contact info</div>
+                            <div class="text">
+                                <a href="/cdn-cgi/l/email-protection#7910171f163900160c0d111a16141b10171c571a1614"><span class="__cf_email__" data-cfemail="3c55525a537c45534948545f53515e555259125f5351">[email&#160;protected]</span></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loc-info"><a href="faq.html">FAQs</a></div>
+                <div class="loc-info"><a href="privacy_policy.html">Privacy Policy</a></div>
+                <div class="loc-info"><a href="terms_conditions.html">Terms and Conditions</a></div>
+                <div class="loc-info"><a href="rules.html">Rules</a></div>
+                <!--                <div class="copyright" style="text-align: center">Powered by <img src="images/img/powered_logo.png"></div>-->
+            </div>
+    </footer>
+
+</div>
+
+</div>
+<!--End Site Container-->
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/popper.min.js?v=78"></script>
+<script src="js/bootstrap.min.js?v=78"></script>
+<script src="js/jquery.fancybox.js?v=78"></script>
+<script src="js/mixitup.js?v=78"></script>
+<script src="js/smooth-scrollbar.js?v=78"></script>
+<script src="js/owl.js?v=78"></script>
+<script src="js/cursor-script.js?v=78"></script>
+<script src="js/bxslider.js?v=78"></script>
+<script src="js/wow.js?v=78"></script>
+<script src="js/custom-script.js?v=78"></script>
+
+</body>
+</html>
